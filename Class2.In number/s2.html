@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bài tập 2.1</title>
+    <style>
+        #main {
+            padding-left: 20em;
+            padding-top: 5em;
+        }
+
+        button {
+            background-color: blueviolet;
+            font-size: 30px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        input {
+            font-size: 30px;
+            color: brown;
+        }
+
+        span {
+            color: rgba(18, 235, 224, 0.849);
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <input type="number" id="input1" min="1" step="1">
+        <button type="button" id="button" onclick="myFunction()">In</button>
+        <button type="button" id="random" onclick="myFunction2()">Random</button>
+        <button type="button" id="clear" onclick="myFunction3()">Clear</button>
+        <p id="ketqua"> </p>
+    </div>
+</body>
+<script>
+    function myFunction2() {
+        var y = Math.floor((Math.random() * 100) + 1);
+        document.getElementById("input1").value = y;
+    }
+    function myFunction() {
+        var cha = document.getElementById("ketqua");
+        var x = parseInt(document.getElementById("input1").value);
+        var a = [];
+        for (var i = 1; i <= x; i++) {
+            var con = document.createElement("span");
+            con.id = "number" + i;
+            cha.appendChild(con);
+            var z = i
+            a.push(con);
+            if (i % 5 == 0) {
+                document.getElementById("number" + i).innerHTML = z + " ";
+                var xd = document.createElement("br");
+                cha.appendChild(xd);
+            } 
+            else {
+                document.getElementById("number" + i).innerHTML = z + " ";
+            }
+        }
+    }
+    function myFunction3() {
+        document.getElementById("ketqua").innerHTML = "";
+        document.getElementById("input1").value = "";
+    }
+</script>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tinh</title>
+</head>
+
+<body>
+    <p>
+        <span>Số 1</span>
+        <input type="number" name="input1" id="input1">
+    </p>
+    <p>
+        <span>Số 2</span>
+        <input type="number" name="input2" id="input2">
+    </p>
+    <p>
+        <span>Tích</span>
+        <input type="number" name="input3" id="input3">
+    </p>
+
+    <button id="button" onclick="myFunction()">Tính</button>
+</body>
+<script type="text/javascript">
+    function myFunction() {
+        var x = parseInt(document.getElementById("input1").value);
+        var y = parseInt(document.getElementById("input2").value);
+        document.getElementById("input3").value = x * y;
+    }
+</script>
+</html>
