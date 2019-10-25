@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Bài 2 (Class)</title>
+    <style>
+        #kt {
+            border-radius: 50%;
+            background-color: chartreuse;
+        }
+
+        #rd {
+            border-radius: 50%;
+            background-color: deepskyblue;
+        }
+
+        .blink {
+            width: 300px;
+            height: 37px;
+            background-color: magenta;
+            padding: 15px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        span {
+            font-size: 20px;
+            font-family: cursive;
+            color: white;
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: .5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+                <label for="form1" style="font-size: 30px">Nhập chiều dài của mảng</label>
+                <input type="number" id="inputfirst" type="number" class="form-control" style="border-radius: 10px">
+                <br>
+                <button type="button" class="btn btn-danger" onclick="myFunction()">Create</button>
+                <button type="button" class="btn btn-warning" onclick="myFunction4()">Clear</button> 
+                <!-- chưa xử lí clear -->
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br>
+    </div>
+    <div class="container-fluid">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <div id="creat"></div> 
+                <!-- div cha -->
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+<script>
+    function myFunction() {
+        var x = document.getElementById("inputfirst").value;
+        var cha = document.getElementById("creat");
+        if (x == "") {
+            alert("No number. You need input number ~!")
+        }
+        else {
+            var arr = [];
+            for (var i = 0; i < x; i++) {
+                var con = document.createElement("input");
+                con.id = "input" + i;
+                con.type = "number";
+                var y = document.createElement("div");
+                y.innerHTML = "Số" + " " + (i + 1);
+                var xd = document.createElement("br");
+                y.appendChild(xd);
+                var sp = document.createElement("span");
+                sp.appendChild(con);
+                cha.appendChild(y);
+                cha.appendChild(sp);
+                arr.push(con);
+            }
+            var xd1 = document.createElement("br");
+            var xd2 = document.createElement("br");
+            var btn = document.createElement("input");
+            btn.type = "button";// tạo button kiểm tra
+            btn.id = "kt";  
+            cha.appendChild(xd1);
+            cha.appendChild(xd2);
+            cha.appendChild(btn);
+            document.getElementById("kt").value = "Kiểm tra"; 
+            document.getElementById("kt").addEventListener("click", myFunction2); // sự kiện click đến hàm myFunction 2
+            var random = document.createElement("input");
+            random.type = "button";// tạo button random
+            random.id = "rd";
+            cha.appendChild(random);
+            document.getElementById("rd").value = "Random"; 
+            document.getElementById("kt").addEventListener("click", myFunction3());// chưa xử lí
+        }
+    }
+    function myFunction2() {
+        var sum = timSum();
+        console.log(sum);
+        var x = document.getElementById("inputfirst").value;
+        var arr = [];
+        for (var i = 0; i < x; i++) {
+            arr[i] = document.getElementById("input" + i);
+
+        }
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].value >= sum) {
+                arr[i] = document.getElementById("input" + i);
+                arr[i].setAttribute("class", "blink"); // attribute apply CSS blink
+            }
+        }
+    }
+    function timSum() {
+        var x = document.getElementById("inputfirst").value;
+        var arr1 = [];
+        for (var i = 0; i < x; i++) {
+            let t = document.getElementById("input" + i).value;
+            arr1.push(t);
+        }
+        var min1 = Math.min(...arr1);
+        arr1 = arr1.filter(result => result != min1); // lọc giá trị phần tử ra khỏi mảng
+        var min2 = Math.min(...arr1);
+        var tong = min1 + min2;
+        return tong; // tính tổng return để lấy value giải quyết hàm myFunction 2
+    }
+</script>
+
+</html>
