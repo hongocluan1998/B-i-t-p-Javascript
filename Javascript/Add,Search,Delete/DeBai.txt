@@ -1,0 +1,12 @@
+mainPage: 
++ dashboard
+
++ filter: male, female : selectedBox  onChange
++ table in center : + STT, MSSV, NAME, GENDER, KHOA  button detail -> page detail button delete -> delete
+                       -------------   ------------                        
+                         textbox       selectedBox
+
+model SV:
+masoSV, name, DoB, gender, Khoa, diemHocTap
+
+localStorage

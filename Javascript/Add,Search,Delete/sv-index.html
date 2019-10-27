@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Danh sách sinh viên - Quản lí sinh viên</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./src/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div class="col-md-12">
+      <form class="bg-light mt-3 mb-3">
+        <div class="row align-items-center">
+          <div class="col-md-2">
+            <input type="button" value="Tạo mới" class="form-control-sm btn btn-success"
+              onclick="viewSvByMssv('new');"></input>
+          </div>
+          <div class="col-md-1"></div>
+
+          <div class="col-md-4 col-sm-12 row align-items-center mr-2">
+            <label for="sortBox" class="col-md-5 col-form-label col-form-label-md">Sắp xếp theo:</label>
+            <select name="sortBox" id="sortTable" class="col-md-7 form-control">
+              <option value="stt" selected>STT</option>
+              <option value="mssv">MSSV</option>
+              <option value="name">Tên</option>
+              <option value="gender">Giới tính</option>
+              <option value="khoa"">Khoa</option>
+              <option value="dtb"">Điểm trung bình</option>
+                </select>
+              </div>
+
+              <div class=" col-md-2 ml-2 mr-2 p-1">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="radTang" name="radSort" value="tang" checked>
+                  <label class="custom-control-label" for="radTang">Tăng</label>
+                </div>
+
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="radGiam" name="radSort" value="giam">
+                  <label class="custom-control-label" for="radGiam">Giảm</label>
+                </div>
+          </div>
+
+          <div class="col-md-3 row">
+            <input type="text" id="searchBox" name="searchBox" class="col form-control" placeholder="Tìm kiếm...">
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-12">
+      <table id="mainTable" class="table table-hover table-striped table-sm-12 table-md-12 ">
+        <caption>Danh sách sinh viên</caption>
+        <thead class="thead-light">
+          <tr class="row">
+            <th class="col-md-1">STT</th>
+            <th class="col-md-2">MSSV</th>
+            <th class="col-md-2">Tên</th>
+            <th class="col-md-1">Giới tính</th>
+            <th class="col-md-1">Khoa</th>
+            <th class="col-md-2">Ngày sinh</th>
+            <th class="col-md-1">Điểm Tb</th>
+            <th class="col-md-2">Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- <tr class="row">
+            <td class="col-md-1">${e.stt}</td>
+            <td class="col-md-2">${e.mssv}</td>
+            <td class="col-md-2"><input class="form-control form-control-sm" id="txtName" type="text" value="${e.name}"></td>
+            <td class="col-md-1"><input class="form-control form-control-sm" id="txtGender" type="text" value="${e.gender}"></td>
+            <td class="col-md-1"><input class="form-control form-control-sm" id="txtKhoa" type="text" value="${e.khoa}"></td>
+            <td class="col-md-2"><input class="form-control form-control-sm" id="txtNgaySinh" type="text" value="${e.ngay_sinh}"></td>
+            <td class="col-md-1"><input class="form-control form-control-sm" id="txtDtb" type="text" value="${e.dtb}"></td>
+            <td class="col-md-2"><button class="btn btn-sm btn-primary" href="javascript:submitSvByMssv(${e.mssv});">Submit</button></td>
+          </tr> -->
+          <!-- <tr class="row">
+            <td class="col-md-1">${e.stt}</td>
+            <td class="col-md-2">${e.mssv}</td>
+            <td class="col-md-2">${e.name}</td>
+            <td class="col-md-1">${e.gender}</td>
+            <td class="col-md-1">${e.khoa}</td>
+            <td class="col-md-2">${e.ngay_sinh}</td>
+            <td class="col-md-1">${e.dtb}</td>
+            <td class="col-md-2"><a href="javascript:editSvByMssv('${e.mssv}');">Sửa </a>|<a
+                href="javascript:deleteSvByMssv('${e.mssv}');"> Xóa </a>|<a
+                href="javascript:viewSvByMssv('${e.mssv}');"> Xem</a></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./src/jquery-3.3.1.slim.min.js"></script>
+  <script src="./src/popper.min.js"></script>
+  <script src="./src/bootstrap.min.js"></script>
+
+  <script src="index.js"></script>
+  <script>
+    $(document).ready(() => {
+      $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+          event.preventDefault();
+          return false;
+        }
+      });
+
+      $('#searchBox').on('input', searching);
+
+      $('#sortTable').on('input', sorting);
+
+      $('[name="radSort"').on('input', sorting);
+    });
+  </script>
+</body>
+
+</html>
