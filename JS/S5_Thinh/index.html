@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./js/index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-5">
+            <form action="" method="post" onsubmit="return validateForm()">
+                <div class="form-group d-flex">
+                  <label for="nameLongin" class="w-25">Tên đăng nhập</label>
+                  <input type="text" class="form-control w-75" id="nameLongin" placeholder="Tên đăng nhập" name="nameLongin">
+                  <p id="nameLonginMessge"></p>
+                 
+                </div>
+                <div class="form-group d-flex">
+                  <label for="inputPassword" class="w-25">Password</label>
+                  <input type="password" class="form-control w-75" id="inputPassword" placeholder="Password" name="inputPassword">
+                  <p id="inputPasswordMessge"></p>
+                </div>
+                <div class="form-group d-flex">
+                  <label for="reInputPassword" class="w-25">Nhập lại Password</label>
+                  <input type="password" class="form-control w-75" id="reInputPassword" placeholder="Password">
+                  <p id="reInputPasswordMessge"></p>
+                </div>
+                <div class="form-group d-flex">
+                  <label for="firstName" class="w-25">Họ của bạn</label>
+                  <input type="text" class="form-control w-75" id="firstName" placeholder="First Name" name="firstName">
+                  <p id="firstNameMessge"></p>
+                 
+                </div>
+                <div class="form-group d-flex">
+                  <label for="lastName" class="w-25">Tên của bạn</label>
+                  <input type="text" class="form-control w-75" id="lastName"  placeholder="Last Name" name="lastName">
+                  <p id="lastNameMessge"></p>
+                 
+                </div>
+                <div class="form-group d-flex">
+                  <label for="inputEmail" class="w-25">Email</label>
+                  <input type="text" class="form-control w-75" id="inputEmail" placeholder="Enter email" name="inputEmail">
+                  <p id="inputEmailMessge"></p>
+                 
+                </div>
+                <div class="form-group d-flex">
+                  <label for="phoneNumber" class="w-25">Số điện thoại</label>
+                  <input type="text" class="form-control w-75" id="phoneNumber"  placeholder="Phone Number" name="phoneNumber" >
+                  <p id="phoneNumbernMessge"></p>
+                 
+                </div>
+                <div class="form-group d-flex">
+                  <div class="w-25"></div>
+                    <button type="submit" class="btn btn-primary w-25" id="submitBottum">Đăng ký</button>
+                </div>
+                
+              </form>
+        </div>
+      </div>
+    </div>
+     
+   
+  </body>
+</html>

@@ -1,0 +1,18 @@
+
+{
+    "productList": [
+    {
+        "itermId": "",
+        "productName": "",
+        "actualPrice":"",
+        "discountPrice": "",
+        "stockAvailable": ""
+    },
+    {
+        "itermId": "",
+        "productName": "",
+        "actualPrice":"",
+        "discountPrice": "",
+        "stockAvailable": ""
+    }]
+}

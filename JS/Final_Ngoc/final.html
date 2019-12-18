@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="final.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body >
+	<div class="container-fluid" id="containerfluid">
+		<div class="row header">
+			<div class="col-1 text-center">
+				<i class="fas fa-grip-vertical"></i>
+				<i class="fas fa-grip-horizontal"></i>	
+			</div>
+			<div class="col-1 text-center">
+				<h5> &ltAPP LOGO&gt	</h5>
+			</div> 
+			<div class="col-3 text-center">
+				<h5>&lt PROJECT NAME / LOCALTION NAME&gt</h5>	
+			</div>
+			<div class="col-2 text-center">
+				<button type="button" class="btn btn-danger">Evacuate Facility</button>
+			</div>
+			<div class="col-2 text-center">
+				<p class="dotted"><i class="fas fa-exclamation"></i>System is currenty offline</p>
+			</div>
+			<div class="col-2 text-center">
+				System Admin
+			</div>
+			<div class="col-1 text-center">
+				<i class="fas fa-bell"></i>
+				<i class="fas fa-circle"></i>
+			</div>
+		</div>
+		<div class="row main">
+			<div class="col-1"></div>
+			<div class="col-10">
+				<h2>Company Management</h2>
+				<p>Companies are created in Core app and imported automatically. Companies can also be created  by cracking the New button</p>
+			</div>
+			<div class="col-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-1 left"></div>
+			<div class="col-10">
+				<button type="button" id="btnNew" class="btn btn-primary text-center">&ensp;&ensp;New&ensp;&ensp;</button>
+				<button type="button" class="btn btn-secondary" id="btnDelete">&ensp;Delete&ensp;</button>
+				<button type="button" class="btn btn-success">Download</button>
+				<button type="button" class="btn btn-danger">Search</button>
+			</div>
+			<div class="col-1 right"></div>
+		</div>
+		<div class="row">
+			<div class="col-1 left"></div>
+			<div class="col-10">
+				<table class="table table-striped" id="show">
+					  <thead>
+					    <tr>
+					      <th scope="col text-center" id="companyName">Company name</th>
+					      <th scope="col text-center" id="colorCode">Color Code</th>
+					      <th scope="col text-center" id="maxWorkingHours">Max working hours</th>
+					      <th scope="col text-center" id="whitelistedZone">Whitelisted Zones</th>
+					      <th scope="col text-center" id="status">Status</th>
+					      <th scope="col text-center">Action</th>
+					    </tr>
+					  </thead>
+				</table> 
+			</div>
+			<div class="col-1 right"></div>
+		</div>
+		<div class="row footer" ></div>
+	</div>
+	<div class="container" id="container">
+        <br>
+        <div class="row">
+            <h3>Edit Company</h3>
+        </div>
+        <div class="row">
+            <p>The setttings for each company can be configured below</p>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Company Name *:</b>
+                    </div>
+                    <div class="col-md-6">
+                            <input type="text" class="form-control" id="inputCompany">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Openrating Conpany :</b>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Maximum Working Hours *:</b>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" min="1" max="12" style="width: 50px;" class="form-control" id="inputMaxWorkHour">
+                    </div>
+                    </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Zone List :</b>
+                    </div>
+                    <div class="col-md-6">
+                    <select id="zoneList" class="custom-select" multiple>
+                        <option value="Zone 1" selected>Zone 1</option>
+                        <option value="Zone 2">Zone 2</option>
+                        <option value="Zone 3">Zone 3</option>
+                        <option value="Zone 4">Zone 4</option>
+                        <option value="Zone 5">Zone 5</option>
+                        <option value="Zone 6">Zone 6</option>
+                        <option value="Zone 7">Zone 7</option>
+                        <option value="Zone 8">Zone 8</option>
+                        <option value="Zone 9">Zone 9</option>
+                        <option value="Zone 10">Zone 10</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <button id="right" style="width: 70px;"><i class="fa fa-angle-double-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <button id="left" style="width: 70px;"><i class="fa fa-angle-double-left"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Status *:</b>
+                        </div>
+                        <div class="col-md-6">
+                            <select id="inputStatus">
+                                <option value="Enable">Enable</option>
+                                <option value="Disable">Disable</option>
+                             </select>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Color Code *</b>
+                        </div>
+                        <div class="col-md-6">
+                            <input style="width: 50px;" type="color" class="form-control" id="inputColor">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Whitelisted Zones</b>
+                        </div>
+                        <div class="col-md-6">
+                            <select id="inputWhitelistedZones" class="custom-select" multiple>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button id="save" type="button" class="btn btn-primary">Save</button>
+                        </div>
+                        <div class="col-md-4">                          
+                            <button id="btnCancel" type="button" class="btn btn-danger">Cancel</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-secondary">History</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+	
+	<script type="text/javascript">
+
+        var inputCompany=document.getElementById('inputCompany');
+        var inputColor=document.getElementById('inputColor');
+        var inputMaxWorkHour=document.getElementById('inputMaxWorkHour');
+        var inputWhitelistedZones=document.getElementById('inputWhitelistedZones');
+        var inputStatus=document.getElementById('inputStatus');
+        var inputAction=document.getElementById('inputAction');
+        var right = document.getElementById("right");
+        var left = document.getElementById("left");
+        var zoneList = document.getElementById("zoneList");
+        var save=document.getElementById("save");
+        var btnNew = document.getElementById('btnNew');
+        var btnDelete = document.getElementById('btnDelete');
+        var btnCancel=document.getElementById('btnCancel');
+
+        btnNew.addEventListener('click', display)
+        btnCancel.addEventListener('click' ,displayTask)  
+        btnDelete.addEventListener('click', clearItem)  
+
+
+        function display(){
+        	document.getElementById("containerfluid").style.display = "none";
+        	document.getElementById("container").style.display = "block";
+        	console.log('test');
+        } 
+
+        function displayTask(){
+        	document.getElementById("containerfluid").style.display = "block";
+        	document.getElementById("container").style.display = "none";
+        }
+
+
+        right.addEventListener("click", turnRight);
+        left.addEventListener("click", turnLeft);
+        save.addEventListener("click", createUser);
+
+        var save = document.getElementById("save");
+
+                function turnRight() 
+            {   
+                var option = document.createElement("option");
+                option.value = zoneList.value;
+                option.text = zoneList.value;
+                inputWhitelistedZones.add(option);
+            }
+                    
+            function turnLeft()
+            {
+                inputWhitelistedZones.remove(inputWhitelistedZones.selectedIndex);
+            }
+
+            function createUser(){  
+             	 var inputCompany = document.getElementById("inputCompany").value;
+                 var inputMaxWorkHour = document.getElementById("inputMaxWorkHour").value;
+                 var inputStatus = document.getElementById("inputStatus").value;
+                 var inputColor = document.getElementById("inputColor").value;
+                 var temp = document.getElementById("inputWhitelistedZones").options;
+                 var show = document.getElementById('show');
+                 if(inputCompany == "" || 
+                     inputMaxWorkHour == "" ||
+                     inputStatus == "" ||
+                     inputColor == "")
+                     {
+                         alert("Điền đủ vào!");
+                     }      
+                     else addToLocal();
+                 }
+            
+            	function addToLocal() {   
+            	    TaskList();
+            	    addItem();
+            	    render()
+            	}
+                         
+                    var TaskArr =[];
+                    var dataString = localStorage.getItem('listTask');
+                    if(dataString){
+                    TaskArr = JSON.parse(dataString)
+                    console.log(dataString);
+                    } else TaskArr =[];                         
+                        function TaskList(company,color,hour,zone,status){
+                            this.company = company;
+                            this.color=color;
+                            this.hour = hour;
+                            this.status =status;
+                            this.zone=zone;
+                        }
+
+                        function addItem(){
+                            let newTask = new TaskList(inputCompany.value, inputColor.value, inputMaxWorkHour.value, inputWhitelistedZones.value, inputStatus.value);
+                                TaskArr.push(newTask);
+                                localStorage.setItem('listTask', JSON.stringify(TaskArr));
+                                location.reload();
+                        }
+
+                        function clearItem(){
+                            TaskArr=[];
+                            render();
+                            localStorage.setItem('listTask' ,'');
+                            location.reload();
+
+                        }
+                         function render() {
+                            let content = '';
+                            for(let i = 0; i < TaskArr.length; i++) {
+                                content += `
+                                <table class="table">
+                                <tr>
+									<td> 
+									      ${TaskArr[i].company}
+									</td>
+									<td> 
+								          ${TaskArr[i].color}
+									</td>
+									<td> 
+									      ${TaskArr[i].hour}
+									</td>
+									<td> 
+								          ${TaskArr[i].zone}
+									</td>
+									<td> 
+									      ${TaskArr[i].status} 
+									</td>
+                                      </tr>
+                                </table>
+                                     `;
+                            }
+                            show.innerHTML += content;
+                        }
+                        render();
+                            
+
+    </script>
+
+
+</body>
+</html>

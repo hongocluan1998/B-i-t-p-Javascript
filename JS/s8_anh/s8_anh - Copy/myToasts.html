@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
+      integrity="sha256-zlmAH+Y2JhZ5QfYMC6ZcoVeYkeo0VEPoUnKeBd83Ldc="
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div
+      style="position: fixed; top: 30px; right: 20px; z-index: 9999999"
+      id="notify"
+    ></div>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 my-5">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
+              Add product
+            </button>
+            <button type="button" class="btn btn-danger my-4" id="btnDelete">
+              Delete
+            </button>
+            <button type="button" class="btn btn-secondary my-4" id="btnRamdum">
+              Ramdom DATA
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary my-4"
+              id="btnDeleteAll"
+            >
+              Xóa local Storage
+            </button>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="form-check">
+                      <!-- <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck"
+                        disabled
+                      /> -->
+                      <!-- <label class="form-check-label" for="gridCheck">
+                        all
+                      </label> -->
+                    </div>
+                  </th>
+                  <th>Item ID</th>
+                  <th>Product Name</th>
+                  <th>Actual Price</th>
+                  <th>Discount Price</th>
+                  <th>Stock Available</th>
+                </tr>
+              </thead>
+              <tbody id="insertTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title ">Add product</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form action="" id="addProduct">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="inputId">Input ID</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="inputId"
+                          placeholder="Enter id"
+                          name="id"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="inputProductName">Product Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputProductName"
+                          placeholder="Enter Product Name"
+                          name="name-product"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="inputActualPrice">Actual Price</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="inputActualPrice"
+                          placeholder="Enter Actual Price"
+                          name="actual-price"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="inputDiscountPrice">Discount Price</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputDiscountPrice"
+                          placeholder="Enter Discount Price"
+                          name="discount-price"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="inputStockAvailable">Stock Available</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="inputStockAvailable"
+                          placeholder="Enter Stock Available"
+                          name="stock-vailable"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <button class="btn btn-primary " id="btnSaveProduct">
+                        save
+                      </button>
+                      <button
+                        class="btn btn-primary spinner"
+                        type="button"
+                        id="btnMySpinner"
+                        disabled
+                      >
+                        <span
+                          class="spinner-border spinner-border-sm"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
+                        <!-- <span class="" id="loading">Loading...</span> -->
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Modal footer -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <button id="test"></button>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"
+      integrity="sha256-SVfZ7rfF8boo4UH6df28wTQeoPEpoQ+xdInu0K2ulYk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js"></script>
+
+    <script>
+      let timOut;
+      let toast = document.getElementsByClassName("toast");
+      function myShow(content, divClass) {
+        let textColor;
+        console.log(divClass == "is-invalid");
+        divClass == "is-invalid"
+          ? (textColor = "text-danger")
+          : (textColor = "text-success");
+        $(toast).each(function() {
+          if (this.classList.contains("lightSpeedOut")) {
+            $(this).remove();
+          }
+        });
+        if ($(".toast.fadeInRight").length > 3) {
+          $(".toast.fadeInRight")[0].classList.replace(
+            "fadeInRight",
+            "lightSpeedOut"
+          );
+        }
+        clearTimeout(timOut);
+        let hlmt =
+          "<div class='toast animated fadeInRight' role='alert'  aria-live='assertive' aria-atomic='true'><div class='toast-header'><img src='...' class='rounded mr-2' alt='...'><strong class='mr-auto'>Bootstrap</strong><small>Now</small><button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div><div><div style='min-width:300px; ' class='form-control " +
+          textColor +
+          " border-0 " +
+          divClass +
+          " text-center'>" +
+          content +
+          "</div></div></div>";
+        $(notify).append(hlmt);
+        $(toast).toast({
+          delay: 5000,
+          autohide: false
+        });
+        $(toast).toast("show");
+        timOut = setTimeout(function() {
+          $(toast).each(function() {
+            if (this.classList.contains("fadeInRight")) {
+              this.classList.replace("fadeInRight", "lightSpeedOut");
+            }
+          });
+        }, 3000);
+      }
+      $(document).ready(function() {
+        let countId = 1;
+        let test = document.getElementById("test");
+        let test1 = document.getElementById("test1");
+        let notify = document.getElementById("notify");
+
+        test.addEventListener("click", function() {
+          myShow("Thành Công", "is-valid");
+        });
+        // test1.addEventListener("click", function() {
+        //   $.toast({
+        //     heading: "",
+        //     text: "Bạn Chưa Đăng Nhập",
+        //     icon: "warning",
+        //     position: "bottom-right",
+        //     showHideTransition: "pan",
+        //     stack: false
+        //   });
+        // });
+
+        $(".toast").on("hidden.bs.toast", function() {
+          alert("ok");
+        });
+      });
+    </script>
+  </body>
+</html>

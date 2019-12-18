@@ -1,0 +1,21 @@
+.main {
+    margin-top: 100px;
+}
+.error {
+    color: red;
+    border: 1px solid red;
+}
+#idTask-error {
+    color: red;
+    border: none;
+}
+#description-error{
+   border: none;
+}
+.span {
+    color: red;
+    cursor: pointer;
+}
+.span:hover {
+    color: rgb(226, 139, 9);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bt1</title>
+</head>
+<body>
+    <p>Task</p>
+    <input type="text" id="nhapText">
+    <input type="button" value="Create" id="input1" onclick="myfunction1()">
+    <input type="button" value="Delete" id="input2" onclick="myfunction2()">
+    <div id="showText"></div>
+    
+</body>
+<script>
+    var myStorege = window.localStorage;
+    var listStr = myStorege.getItem("key") === null ? [] : JSON.parse(myStorege.getItem("key"));
+    var strTemp = "";
+    for(var i = 0; i < listStr.length; i++)
+    {
+        strTemp += `Task ${i}: ${listStr[i]} <br/>`;
+    }
+    document.getElementById("showText").innerHTML = strTemp;
+    function myfunction1() {
+        var text = document.getElementById("nhapText").value;
+        listStr.push(text);
+        myStorege.setItem("key", JSON.stringify(listStr));
+        //var show = JSON.parse(myStorege.getItem("key")).join("");
+        var str = "";
+        for(var i = 0; i < listStr.length; i++){
+            str +=  `Task ${i}: ${listStr[i]} <br/>`;
+        }
+        document.getElementById("showText").innerHTML = str;
+        location.reload();
+    }
+    function myfunction2() {
+        window.localStorage.removeItem("key");
+        location.reload();
+    }
+</script>
+</html>

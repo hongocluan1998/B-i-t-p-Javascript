@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Final</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row py-3"><h3>Edit Company</h3></div>
+		<div class="row bg-light">
+			<form action="" method="POST" id="create" class="w-100 py-4 px-3">
+				<div class="row">
+					<div class="col-5">
+						<div class="row">
+							<div class="col-5"><label for="company" class="custom">Company Name*</label></div>
+							<div class="col-7"><input type="text" name="company" class="w-100"></div>
+						</div>
+					</div>
+					<div class="col-2"></div>
+					<div class="col-5">
+						<div class="row">
+							<div class="col-5"><label for="status" class="custom">Status*</label></div>
+							<div class="col-7"><select name="status">
+								<option value="Disable">Disable</option>
+								<option value="Enable">Enable</option>
+							</select></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-5">
+						<div class="row">
+							<div class="col-5"><label for="operate" class="custom">Operating Company*</label></div>
+							<div class="col-7"><input type="checkbox" name="operate" class=""></div>
+						</div>
+					</div>
+					<div class="col-2"></div>
+					<div class="col-5">
+						<div class="row">
+							<div class="col-5"><label for="colorCode" class="custom">Color Code*</label></div>
+							<div class="col-7"><input type="color" name="colorCode" class=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-5">
+						<div class="row">
+							<div class="col-5"><label for="workHours" class="custom">Max. Working Hours*</label></div>
+							<div class="col-7"><input type="text" name="workHours" class="w-25"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-5 zones">
+						<div class="row">
+							<div class="col-5"><label for="zones" class="custom">Zone List*</label></div>
+							<div class="col-7"><select name="zoneList" size="7" class="w-100">
+								<option value="1" data-zone="1">Zone 1</option>
+								<option value="2">Zone 2</option>
+								<option value="3">Zone 3</option>
+								<option value="4">Zone 4</option>
+								<option value="5">Zone 5</option>
+								<option value="6">Zone 6</option>
+								<option value="7">Zone 7</option>
+								<option value="8">Zone 8</option>
+								<option value="9">Zone 9</option>
+								<option value="10">Zone 10</option>
+								<option value="11">Zone 11</option>
+								<option value="12">Zone 12</option>
+							</select></div>
+						</div>
+					</div>
+					<div class="col-2 move">
+						<button type="button" name="add" class="btn btn-secondary mb-2 arrow"><i class="fas fa-angle-double-right mx-3"></i></button>
+						<button type="button" name="remove" class="btn btn-secondary arrow"><i class="fas fa-angle-double-left mx-3"></i></button>
+					</div>
+					<div class="col-5 zones">
+						<div class="row">
+							<div class="col-5"><label for="zones" class="custom">Whitelisted Zones</label></div>
+							<div class="col-7"><select name="zoneWhite" size="7" class="w-100"></div>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="w-100 text-right pt-3 pr-3">
+					<button type="submit" class="btn btn-success mr-2">Save</button>
+					<button type="reset" class="btn btn-secondary mr-2" data-event="clear">Cancel</button>
+					<a href="index.html"><button type="button" class="btn btn-secondary mr-2" data-event="clear">Manage</button></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="jquery.validate.min.js"></script>
+	<script src="create.js"></script>
+</body>
+</html>

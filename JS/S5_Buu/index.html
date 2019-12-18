@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>validation</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="animate.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="jquery.validate.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center main">
+              <h3>Đăng ký thành viên </h3>
+            </div>
+          </div>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+      
+            <div class="panel-body">
+              <form
+                id="signUpForm"
+                method="post"
+                class="form-horizontal"
+                action=""
+              >
+              <div class="form-group">
+                  <label class="col-sm-5 col-md-4 control-label" for="username1"
+                    >Tên đăng nhập (*) :</label
+                  >
+                  <div class="col-sm-6 col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="userName"
+                      name="userName"
+                      placeholder="Username"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 col-md-4 control-label" for="password1"
+                      >Password (*) :</label
+                    >
+                    <div class="col-sm-6 col-md-6">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 col-md-4 control-label" for="confirm_password1"
+                      >Confirm password (*) :</label
+                    >
+                    <div class="col-sm-6 col-md-6">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="confirm_password1"
+                        name="confirm_password"
+                        placeholder="Confirm password"
+                      />
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label class="col-sm-5 col-md-4 control-label" for="lastName"
+                    >Họ của bạn (*) :</label
+                  >
+                  <div class="col-sm-6 col-md-6">  
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Last name"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 col-md-4 control-label" for="firstName"
+                      >Tên của bạn (*) :</label
+                    >
+                    <div class="col-sm-6 col-md-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="first name"
+                      />
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label class="col-sm-5 col-md-4 control-label" for="email1"
+                    >Email (*) :</label
+                  >
+                  <div class="col-sm-6 col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 col-md-4 control-label" for="phoneNumber"
+                      >Số điện thoại (*) :</label
+                    >
+                    <div class="col-sm-6 col-md-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        placeholder="Phone Number"
+                      />
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <div class="col-sm-9 col-sm-offset-5 col-md-offset-4">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      name="signup"
+                      value="Sign up"
+                    >
+                      Đăng ký
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script language="javascript" src="index.js"></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+      ></script>
+ 
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 01</title>
+	<style>
+		table{
+			border-collapse: collapse;
+			margin-bottom: 10px;
+		}
+		th,td{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Number 01</th>
+			<th>Number 02</th>
+			<th>Number 03</th>
+			<th>Number 04</th>
+			<th>Number 05</th>
+<!-- 			<th>Number 06</th>
+			<th>Number 07</th>
+			<th>Number 08</th>
+			<th>Number 09</th>
+			<th>Number 10</th> -->
+		</tr>
+		<tr>
+			<td class="Num">0</td>
+			<td class="Num">0</td>
+			<td class="Num">0</td>
+			<td class="Num">0</td>
+			<td class="Num">0</td>
+<!-- 			<td class="Num">0</td>
+			<td class="Num">0</td>
+			<td class="Num">0</td>
+			<td class="Num">0</td>
+			<td class="Num">0</td> -->
+		</tr>
+	</table>
+	<button id="rand">Random</button>
+	<button id="getMax">Find max number</button>
+	<span></span>
+	<script>
+		var rand = document.getElementById("rand");
+		var numbers = document.getElementsByClassName("Num");
+		var maxNumber = document.getElementById("getMax");
+		var arrayNum = [];
+		rand.addEventListener("click",function(){
+			arrayNum = [];
+			for(let number of numbers){
+				number.innerText = Math.round(Math.random()*1000);
+				arrayNum.push(parseInt(number.innerText));
+			}
+		})
+		maxNumber.addEventListener("click",function(){
+			var numMax = 0;
+			var numMin = arrayNum[0];
+			for(let number of arrayNum){
+				if(numMax < number) numMax = number;
+				if(numMin > number) numMin = number;
+			}
+			document.querySelector("span").innerHTML = '<br>Max of numbers is: ' + numMax + '<br>Min of numbers is: ' + numMin;
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+<style type="text/css">
+  .row{
+    margin-top: 40px;
+  }
+</style>
+<body>
+  		<div class="container">
+  			<div class="row">
+  				<div class="row">
+            <div class="col-12">
+  				  <label for="Vietnam"><h2>Vietnam</h2></label>
+  					<input class="form-control" type="text" name="timeofvietnam" id="Vietnam">
+            </div> 
+  				</div>
+  				<div class="row">
+            <div class="col-12">
+  					<label for="US"><h2>US</h2></label>
+  					<input class="form-control" type="text" name="timeofus" id="US">
+            </div>
+  				</div>
+  				<div class="row">
+            <div class="col-12">
+  					<label for="Taiwan"><h2>Taiwan</h2></label>
+  					<input class="form-control" type="text" name="timeoftaiwan" id="Taiwan">
+            </div>
+  				</div>
+  				<div class="row">
+            <div class="col-12">
+  					<label for="India"><h2>India</h2></label>
+  					<input class="form-control" type="text" name="timeofindia" id="India">
+            </div>
+  				</div>
+  				<div class="row">
+            <div class="col-12">
+  					<label for="UTC"><h2>UTC</h2></label>
+  					<input class="form-control" type="text" name="timeofutv" id="UTC">
+            </div>
+  				</div>
+  			</div>	
+  		</div>
+  		<script type="text/javascript">
+        setInterval(time,1000)
+        function time(){
+  			let timeofvietnam = document.getElementById("timeofvietnam")
+  			let timeofus = document.getElementById("timeofus")
+  			let timeoftaiwan = document.getElementById("timeoftaiwan")
+  			let timeofindia = document.getElementById("timeofindia")
+  			let now = new Date();
+  			UTC.value=now;
+  			Vietnam.value=now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
+  			US.value=now.toLocaleString("en-US",{timeZone:"America/New_York"});
+  			Taiwan.value=now.toLocaleString("en-US",{timeZone:"Asia/Taipei"});
+  			India.value=now.toLocaleString("en-US",{timeZone:"America/Indiana/Indianapolis"});
+      }
+
+  		</script>
+	
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="inputarray">
+		<div class="container mt-3">
+			<div class="row">
+					<div class="col-sm-6 ">
+				<span>Nhập chiều dài mảng: </span>
+					</div>
+				<div class="col-sm-6 text-left">
+						<input type="number" id="input">
+						<button onclick="showForm()">Nhập</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="form">
+
+	</div>
+</body>
+<script>
+	function showForm() {
+		var a = document.querySelector("input").value;
+		console.log(a);
+		var output= '';		
+		for (var i = 0; i < a; i++){
+			output += '<div class="row"><div class="col-sm-2 text-center mt-3">' + 'Cột ' + i
+			      +
+			      "</div>" +
+			      '<div class="col-sm-4 text-center mt-3 " >' +
+			      '<input type="number" class="form-control text-center numInput"id="" />' +
+			      "</div>" +
+			      "</div>";
+		}
+		document.getElementById("form").innerHTML = output;
+	}
+</script>
+
+</html>

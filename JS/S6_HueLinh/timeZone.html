@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TimeZone Calculator</title>
+    <style>
+        h3 {
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            width: calc(100% / 6);
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Timezone</h3>
+    <table class="col-md-8 mx-auto">
+        <tr>
+            <th>Vietnam</th>
+            <th>Newyork</th>
+            <th>Taiwan</th>
+            <th>India</th>
+            <th>Japan</th>
+            <th>UTC</th>
+        </tr>
+
+        <tr>
+            <td id="vnTime"></td>
+            <td id="nyTime"></td>
+            <td id="twTime"></td>
+            <td id="indiTime"></td>
+            <td id="jpTime"></td>
+            <td id="utcTime"></td>
+        </tr>
+    </table>
+
+    <script>
+        setInterval(genderTime, 1000);
+
+        function genderTime() {
+            var vnTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
+            var nyTime = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+            var twTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Taipei"});
+            var indiTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"});
+            var jpTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Tokyo"});
+            var utcTime = new Date().toLocaleString("en-US", {timeZone: "Etc/UTC"});
+            document.getElementById('vnTime').innerHTML = vnTime;
+            document.getElementById('nyTime').innerHTML = nyTime;
+            document.getElementById('twTime').innerHTML = twTime;
+            document.getElementById('indiTime').innerHTML = indiTime;
+            document.getElementById('jpTime').innerHTML = jpTime;
+            document.getElementById('utcTime').innerHTML = utcTime;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+.error_border{
+  border: 1px solid red;
+}
+#messError{
+  color: red;
+}

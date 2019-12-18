@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="edit.css" />
+    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container main">
+      <div class="row">
+          <div class="col-md-6 col-sm-6">
+              <div> 
+                  <label for="companyName" class="mr-2"> <b>CompanyName</b><span>*</></label>
+                  <input type="text" name="companyName" id="companyName" placeholder="DIALOG Group">
+              </div>
+              <div class="checkbox check">
+                <label><b>Operating Company</b><input type="checkbox" name="operatingCompany" id="operatingCompany" class="ml-5"></label>
+              </div>
+              <div class="check">
+                <label><b>Maximum Working Hours </b><span>*</span> <input type="number" name="maxWorkingHours" 
+                  id="maxWorkingHours" placeholder="8"> </label>
+              </div>
+              <div class="row form-group check">
+                <div class="col-md-4 col-sm-4">
+                <label for="selectZoneList"><b>Zone List </b></label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <select multiple class="form-control" id="selectZoneList" size="8">
+                        <option id="1">Zone 1</option>
+                        <option id="2">Zone 2</option>
+                        <option id="3">Zone 3</option>
+                        <option id="4">Zone 4</option>
+                        <option id="5">Zone 5</option>
+                        <option id="6">Zone 6</option>
+                        <option id="7">Zone 7</option>
+                        <option id="8">Zone 8</option>
+                        <option id="9">Zone 9</option>
+                        <option id="10">Zone 10</option>
+                        <option id="11">Zone 11</option>
+                        <option id="12">Zone 12</option>
+                        <option id="13">Zone 13</option>
+                        <option id="14">Zone 14</option>
+                        <option id="15">Zone 15</option>
+                      </select>
+              </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="row form-group">
+                  <div class="offset-md-2 offset-sm-3 col-sm-3 col-md-2">
+                  <label for="selectStatus"><b>Status</b><span>*</span></label>
+                  </div>
+                  <div class="col-md-8 col-sm-7">
+                      <select class="form-control" name="selectStatus" id="selectStatus">
+                          <option>Enabled</option>
+                          <option>Disable</option>
+                          </select>
+                    </div>
+          </div>
+          <div class="row check">
+              <div class="offset-md-2 col-md-12">
+              <label for="selectStatus"><b>Color Code</b><span>*</span> <input id="favColor" type="color" name="favColor" value="#00FF33" class="ml-1"> </label>
+              </div>
+          </div>
+          <div class="row check1">
+              <div class="col-md-2">
+                <button type="button" class="btn btn-outline-success mb-2 mt-2" id="next"> >> </button>
+                <button type="button" class="btn btn-outline-success mt-2" id="back"> << </button>
+              </div>
+              <div class="col-md-10">
+                <div class="row form-group">
+                  <div class="col-md-4">
+                    <label for="block"><b>Whitelisted Zone</b></label>
+                  </div>
+                  <div class="col-md-8" id="block">
+                              <select multiple class="form-control mt-1" id="returnZoneList" size="8" >
+                                 
+                              </select>
+                        </div>
+                </div>      
+                  </div>
+                </div>
+            </div>
+      </div>
+    <div class="row">
+      <div class="col-md-12 text-right">
+      <button type="button" id="save" class="btn btn-outline-primary"><a id="save"> Save </a></button>
+      <button class="btn btn-primary"> <a id="cancel" href="index.html">Cancel</a> </button>
+      </div>
+      </div>
+    </div>
+
+    <script language="javascript" src="edit.js"></script>
+  </body>
+</html>

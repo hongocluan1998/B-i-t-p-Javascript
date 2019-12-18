@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<title>Document</title>
+	</head>
+	<body>
+		<p>
+			<span>Width: </span>
+			<input id="widthInput" type="number">
+			<span>Height: </span>
+			<input id="heightInput" type="number">
+			<span>Color: </span>
+			<select id="colorInput">
+				<option value="blue">Blue</option>
+				<option value="red">Red</option>
+				<option value="green">Green</option>
+				<option value="gray">Gray</option>
+			</select>
+			<button onclick="showModal()">Generate</button>
+		</p>
+		<div id="my-modal">
+			
+		</div>
+	</body>
+	<script>
+		function showModal(){
+			var width = document.getElementById("widthInput").value;
+			var height = document.getElementById("heightInput").value;
+			var color = document.getElementById("colorInput").value;
+	
+			document.getElementById("my-modal").style.backgroundColor = document.getElementById("colorInput").value;
+			document.getElementById("my-modal").style.width = document.getElementById("widthInput").value + "px";
+			document.getElementById("my-modal").style.height = document.getElementById("heightInput").value + "px";
+		}
+	</script>
+</html>

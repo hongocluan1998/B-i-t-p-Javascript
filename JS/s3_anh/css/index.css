@@ -1,0 +1,6 @@
+.render-input {
+  /* display: none; */
+}
+.col-sm-4 .my-input-error {
+  border: 2px solid red;
+}

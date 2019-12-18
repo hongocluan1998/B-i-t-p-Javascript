@@ -1,0 +1,27 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+} 
+
+.button {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: transparent;
+  width: 30px;
+}
+
+.btnHover {
+  display: none;
+}
+
+.inputGroup:hover > button {
+  display: block;
+}
+
+.btn-m {
+  margin-left: 455px;
+}
+
+.button:hover {
+  background-color: #73636336;
+}

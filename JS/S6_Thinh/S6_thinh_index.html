@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>
+                TimeZone
+            </th>
+            <th>
+                Vietnam(Asia/Ho_Chi_Minh)
+            </th>
+            <th>
+                <input type="text" id="InputListArea1" autocomplete="off">
+                <select id="listArea1" class="noDisplay" >
+                    <option value="volvo">Volvo</option>
+                </select>
+            </th>
+            <th>
+                <input type="text" id="InputListArea2" autocomplete="off">
+                <select id="listArea2" class="noDisplay">
+                    <option value="volvo">Volvo</option>
+                </select>
+
+            </th>
+            <th>
+                
+                <select id="listArea3" class="noDisplay" autocomplete="off">
+                    <option value="">
+                        <input type="text" id="InputListArea3">
+                    </option>
+                </select>
+
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Time
+            </td>
+            <td>
+                <span id="outputTime0"></span>
+            </td>
+            <td>
+                <span id="outputTime1"></span>
+            </td>
+            <td>
+                <span id="outputTime2"></span>
+            </td>
+            <td>
+                <span id="outputTime3"></span>
+            </td>
+        </tr>
+    </table>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: fit-content;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            width: 200px;
+        }
+
+        tr:nth-child(even) {
+            position: relative;
+            background-color: #dddddd;
+        }
+
+        .noDisplay {
+            display: none;
+        }
+
+        .display {
+            display: block;
+            position: absolute;
+            width: 200px;
+            top: 40px;
+            z-index: 5;
+
+        }
+    </style>
+    <script>
+        let arrtimeZone = [];
+        axios.get('http://worldtimeapi.org/api/timezone/')
+            .then(function (response) {              
+                console.log(response.data);
+                arrtimeZone=response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+            });
+        let inputArr = document.querySelectorAll('input');
+
+        for (input of inputArr) {
+            input.addEventListener('keyup', getInput);
+            // input.addEventListener('change', getTime);
+        }
+        getVNtime();
+        setInterval(gettime, 1000*60);
+      
+
+        function getInput(event) {
+            let found=[];
+            let input=this;
+            let idnumber = input.id.substr(-1);
+            let querySelec = 'listArea'+idnumber;
+            querySelec = document.getElementById(querySelec);
+            querySelec.addEventListener('change',selectedTimeZone)
+            found = arrtimeZone.filter( element => element.includes(input.value));
+            querySelec.innerHTML='';
+            for( value of found){
+                let node = document.createElement("option"); 
+                node.innerHTML=value;
+                node.setAttribute('value',value);
+                querySelec.appendChild(node);
+                if(querySelec.childElementCount>5){
+                    querySelec.setAttribute('size','5');
+                } else {
+                    querySelec.setAttribute('size',(querySelec.childElementCount+1).toString());
+                }
+            }
+            if (this.value.length > 0) {
+                querySelec.classList = 'display';
+            } else {
+                querySelec.classList = 'noDisplay';
+            }
+        } 
+        function selectedTimeZone(){
+            let time='';
+            let select=this;
+            let idnumber = select.id.substr(-1);
+            let inputQuery=document.getElementById('InputListArea'+idnumber);
+            inputQuery.value=select.value;
+            select.classList = 'noDisplay';         
+            let queryOutput=document.getElementById('outputTime' + idnumber);
+
+            axios.get('http://worldtimeapi.org/api/timezone/'+inputQuery.value)
+            .then(function (response) {              
+                
+                time=response.data.datetime.substr(11,5);
+                queryOutput.innerHTML=time;
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+            });        
+        }  
+        function getVNtime(){
+            axios.get('http://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh')
+            .then(function (response) {              
+                document.getElementById('outputTime0').innerHTML=response.data.datetime.substr(11,5);
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+            });
+        }
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 9</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+		input{
+			/* width: 35%!important; */
+			/* display: inline!important; */
+			margin-right: 10px;
+		}
+		.table td{
+			vertical-align: baseline!important;
+		}
+		form .error{
+			color: red;
+		}
+		span{
+			display: flex;
+			align-items: center;
+			height: 38px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container pt-3">
+		<div class="row">
+			<div class="col-6">
+				<form action="" id="createNewTask">
+					<div class="row">
+						<div class="col-2"><span>Task: </span></div>
+						<div class="col-5"><input type="text" name="id" required placeholder="ID Task" class="form-control"></div>
+						<div class="col-5"><input type="text" name="desc" required placeholder="Description" class="form-control"></div>
+					</div>
+					<div class="pt-3"><button type="submit" class="btn btn-success mr-2">Add</button><button type="button" class="btn btn-danger">Clear</button></div>
+				</form>
+			</div>
+			<div class="col-6">
+				<table class="showTask table">
+					
+				</table>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="jquery.validate.min.js"></script>
+	<script src="jquery.validate.min.js"></script>
+	<script>
+		// declare variables
+		let addTask = document.querySelector('button[type="submit"]');
+		let deleteAllTask = document.querySelector('button[type="button"]');
+		let showTask = document.querySelector('.showTask');
+		let dataTask = document.querySelectorAll('input');
+		let idTask = document.querySelector('input[name="id"]');
+		let descTask = document.querySelector('input[name="desc"]');
+		let memoryTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+		let deleleTask = document.querySelectorAll('button[data-index]');
+
+		// add event
+		deleteAllTask.addEventListener('click',function(){
+			memoryTasks = [];
+			renderTask(memoryTasks);
+			localStorage.setItem('tasks',JSON.stringify(memoryTasks));
+		})
+		idTask.addEventListener('focusout',function(){
+			idTask.value = idTask.value.toUpperCase();
+		})
+
+		// running first time
+		renderTask(memoryTasks);
+
+		// define functions
+		function detailTask(id,desc){
+			this.id = id;
+			this.desc = desc;
+		}
+		function renderTask(memory = []){
+			const heading = `<tr><th scope="col">ID</th><th scope="col">Description</th></tr>`;
+			let renderTask = memoryTasks.map((task,index) => `<tr><td><button type="button" class="btn btn-danger" data-index=${index}>Delete</button></td><td>${task.id}</td><td>${task.desc}</td></tr>`).join('');
+			showTask.innerHTML = heading + renderTask;
+			document.querySelectorAll('button[data-index]').forEach(task => task.addEventListener('click',delOneTask));
+		}
+		function delOneTask(){
+			memoryTasks.splice(this.dataset.index,1);
+			renderTask(memoryTasks);
+			localStorage.setItem('tasks',JSON.stringify(memoryTasks));
+		}
+		function handleForm(){
+			if(isIdExist(idTask.value)){
+				let newTask = new detailTask(idTask.value, descTask.value);			
+				memoryTasks.push(newTask);
+				renderTask(memoryTasks);			
+				localStorage.setItem('tasks',JSON.stringify(memoryTasks));
+				return true;
+			}else return false;
+		}
+		function isIdExist(newId){
+			let arrayID = memoryTasks.map(task => task.id);
+			return arrayID.every(id => id != newId);
+		}
+
+		// form validate
+		$(document).ready(function(){
+			$('#createNewTask').submit(function(e){
+				e.preventDefault();
+			}).validate({
+				rules: {
+					id: {
+						required: true,
+						rangelength: [4,4]
+					},
+					desc: {
+						required: true
+					}
+				},
+				messages: {
+					id: {
+						required: "Please enter the task's ID",
+						rangelength: "ID must be 4 characters",
+						ruleId: "ID just include number and character"
+					},
+					desc: {
+						required: "Please enter the task's description",
+					}
+				},
+				submitHandler: function(){
+					if(!handleForm()) alert('This ID already exist!!!');
+					$('#createNewTask')[0].reset();
+				}
+			});
+			$.validator.addMethod('ruleId',function(value){
+				return /^[A-Za-z0-9]+$/.test(value);
+			});
+		})
+	</script>
+</body>
+</html>

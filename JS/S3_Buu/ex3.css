@@ -1,0 +1,19 @@
+#form {
+    margin-top: 70px ;
+}
+.labelInput {
+    margin-bottom: 20px;
+}
+.range {
+    width: 90px;
+}
+.color {
+    border: 4px solid pink;
+}
+.addInput {
+    padding-left: 20px ;
+}
+.x {
+    margin-top:15px ;
+    margin-left:135px ;
+}

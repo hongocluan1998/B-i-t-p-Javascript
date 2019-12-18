@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-1-12">
+        <span>Số input</span> <input type="number" class="Soinput" name="No.1" id="Soinput">
+        <button type="button" class="btn btn-primary m-2" id="reder">Render</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1-12">
+        <div id="inputElement">
+          <div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1-12">
+        <button type="button" class="btn btn-primary m-2" id="minbt">Tính Min</button>
+        <button type="button" class="btn btn-primary m-2" id="Kiemtrabt">Kiểm tra</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1-12">
+        Giá trị thấp nhất là:
+        <span id="output"></span>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-1-12">
+        <span id="output2"></span>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    let inputValue = document.getElementsByClassName('input');
+
+    let minbt = document.getElementById('minbt');
+    let output = document.getElementById('output');
+    let output2 = document.getElementById('output2');
+    let reder = document.getElementById('reder');
+
+    minbt.addEventListener('click', calculaeeMin);
+    Kiemtrabt.addEventListener('click', kiemtra)
+    reder.addEventListener('click', rederFunction)
+
+    function rederFunction() {
+
+      let soinput = document.getElementById('Soinput');
+      let inputElement = document.getElementById('inputElement');
+      inputElement.innerHTML = '';
+      let soinputvl = parseFloat(soinput.value);
+      console.log(inputElement);
+      if (soinputvl <= 100) {
+        for (i = 0; i < soinputvl; i++) {
+
+          let str = "<span>No." + (i + 1).toString() + "</span><input type='number' class='input m-2' name='No." + (i + 1).toString() + " '> ";
+          let node = document.createElement("div");
+          let textnode = document.createTextNode(str);
+          node.innerHTML = str;
+          node.classList.add('m-2');
+          inputElement.appendChild(node);
+
+        }
+      } else {
+        alert('Nhập tối đa 100 dòng !! ');
+      }
+
+
+    }
+    function calculaeeMin() {
+      let min = 'min';
+      for (valuee of inputValue) {
+        let inputNumber = parseFloat(valuee.value)
+        if (!Number.isNaN(inputNumber)) {
+          if (min == 'min' && inputNumber != 0) {
+            min = inputNumber;
+          }
+          if (inputNumber < min) {
+            min = inputNumber;
+          }
+        }
+      }
+      output.innerHTML = min.toString();
+    }
+    function kiemtra() {
+      let arrNumber = [];
+      for (i = 0; i < inputValue.length; i++) {
+        inputValue[i].setAttribute('style', 'border:1px solid');
+        let inputNumber = parseInt(inputValue[i].value)
+        if (!Number.isNaN(inputNumber)) {
+          arrNumber.push([inputNumber, i]);
+        }
+      }
+      arrNumber.sort(function (a, b) { return a[0] - b[0]; });
+      for (j = arrNumber.length - 1; j >= 0; j--) {
+        //let arr = arrNumber[j];
+        if (arrNumber[j][0] >= (arrNumber[0][0] + arrNumber[1][0])) {
+          if (j == 1 && arrNumber[1][0] >= (arrNumber[2][0] + arrNumber[0][0])) {
+            inputValue[arrNumber[j][1]].setAttribute('style', 'border:1px solid red');
+          }
+          if (j == 0 && arrNumber[0][0] >= (arrNumber[2][0] + arrNumber[1][0])) {
+            inputValue[arrNumber[j][1]].setAttribute('style', 'border:1px solid red');
+          }
+          if (j > 1) {
+            inputValue[arrNumber[j][1]].setAttribute('style', 'border:1px solid red');
+          }
+        }
+
+        else {
+          j = 0;
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>

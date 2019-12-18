@@ -1,0 +1,27 @@
+.animation {
+    animation: 1.2s down forwards;
+}
+@-webkit-keyframes down {
+    0% {transform: translateY(-200px);}
+    50% {transform: translateY(50px);}
+    65% {transform: translateY(-50px);} 
+    75% {transform: translateY(30px);}
+    85% {transform: translateY(-30px);}
+    90% {transform: translateY(20px);}
+    95% {transform: translateY(-15px);}
+    96% {transform: translateY(4px);}
+    97% {transform: translateY(-4px);}
+    98% {transform: translateY(-3px);}
+    99% {transform: translateY(2px);}
+    100% {transform: translateY(0px);}
+}
+.animationNext {
+    animation: 0.4s next forwards;
+}
+@-webkit-keyframes next {
+    0% {transform: translateX(0px);opacity: 1;}
+    100% {transform: translateX(300px); opacity: 0;}
+}
+.block {
+    margin-top: 70px;
+}

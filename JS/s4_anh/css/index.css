@@ -1,0 +1,6 @@
+.form-control.input_error{
+border: 1px solid red;
+}
+.form-control-plaintext.my-width{
+    width: 55px;
+}

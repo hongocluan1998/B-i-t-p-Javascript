@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row m-3">
+			<h1 class="text-center">Information user</h1>
+			<div class="col-12">
+				<span class="font-weight-normal">Email: &nbsp;</span>
+				<div id="form"></div>
+				<input type="button" class="btn btn-primary" id="addEmail" value="+"/>
+			</div>	
+		</div><div class="row m-3">
+			<div class="col-12">
+				<span class="font-weight-normal">Phone:</span>
+				<div id="form2"></div>
+				<input type="button" class="btn btn-primary" id="addPhone" value="+"/>
+			</div>	
+		</div>
+		<div class="row m-3">
+			<div clsass="col-3 text-right">
+				<button type="button" class="btn btn-danger">Submit</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var num = 0;
+			document.getElementById('addEmail').addEventListener("click",addInput);
+			function addInput(){
+			var newInput = '<input type="email" placeholder="email" required name="input'+num+'"/><br> <br>';
+   			document.getElementById('form').innerHTML += newInput;  
+  			 num++;
+		}
+		var num2 = 0;
+			document.getElementById('addPhone').addEventListener("click",addInput2);
+			function addInput2(){
+			var newInput2 = '<input type="text" placeholder="84" name="input'+num2+'"/>'+'<input type="text" placeholder="phone" name="input'+num2+'"/><br> <br>';
+   			document.getElementById('form2').innerHTML += newInput2;  
+  			 num2++;
+		}	
+	</script>	
+</body>
+</html>

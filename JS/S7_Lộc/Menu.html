@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
+</head>
+<body>
+    <span>Món</span>
+    <select id="doUong">
+        <option>---:----</option>
+        <option value="25000">Cà phê sữa </option>
+        <option value="20000">Cà phê đá</option>
+        <option value="10000">Sting dâu</option>
+        <option value="2000">Trà đà </option>
+      </select>
+      <span>SL</span>
+      <input type="number"  id="input">
+      <input type="button" value="tính tiền" onclick="tinhTien()"> 
+      <p id="sum"></p>
+</body>
+<script>
+    function tinhTien(){
+    var x = parseInt(document.getElementById('input').value);
+    var mon = document.getElementById('doUong');
+    var tinh = parseInt(mon.options[mon.selectedIndex].value);
+    var ketQua; 
+    switch(tinh){
+        case 25000 : 
+            ketQua = tinh * x;
+            break;
+        case 20000 : 
+            ketQua = tinh * x;
+            break;
+        case 10000 : 
+            ketQua = tinh * x;
+            break;
+        case 2000 : 
+            ketQua = tinh * x;
+            break;
+    }
+    document.getElementById("sum").innerHTML = "Sum : " + ketQua + " "+"VND";
+    }
+</script>
+</html>

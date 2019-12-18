@@ -1,0 +1,9 @@
+.move {
+    animation: 4s transfer forwards ;
+}
+
+@-webkit-keyframes transfer {
+    0% {transform: translateX(0); }
+    50% {transform: translateX(930px);}
+   
+}

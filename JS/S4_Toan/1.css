@@ -1,0 +1,10 @@
+*{margin: 0; padding: 0;} 
+.phoneCode{
+    width: 50px;
+}
+.phoneNumber{
+    width:  200px;
+}
+.email{
+    width:  333px;
+}

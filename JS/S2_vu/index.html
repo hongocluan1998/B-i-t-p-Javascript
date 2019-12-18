@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="JS.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row mx-3 my-3">
+			<div class="col-12">
+				<label for="" class="mx-2">Width</label>
+				<input id="widthInput" type="textbox" placeholder="width" class="mr-3" onkeypress="validate()">
+				<label for="" class="mx-2">Height</label>
+				<input id="heightInput" type="textbox" placeholder="height" class="mr-3" onkeypress="validate()">
+				<label for="" class="mx-2">Color</label>
+				<select id="colorInput" class="mx-2" onchange="validate()">
+					<option></option>
+					<option>Blue</option>
+					<option>Red</option>
+				    <option>Green</option>
+				    <option>Gray</option>
+				</select>
+				<button type="button" onclick="generateObject()" class="btn btn-secondary my-5" disabled>Generate</button>
+				<div id="object"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

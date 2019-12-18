@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>countdown</title>
+	<style type="text/css">
+		body{
+			background-color: 	#F0F8FF;
+		}
+		.container{
+			margin-top: 250px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+			<div class="row input-group">
+				  <div class="col-3"></div>
+				  <span  class="col-2 input-group-text" id="addon-wrapping">Event</span>
+				  <input type="text" class="col-4 form-control" id="Event">
+				  <div class="col-3"></div>
+			</div>	  
+			<div class="row input-group">
+				  <div class="col-3"></div>
+				  <span  class="col-2 input-group-text" id="addon-wrapping">Time</span>
+				  <input type="datetime-local" class="col-4 form-control" id="inputTime" >
+				  <div class="col-3"></div>  
+			</div>	
+			<div class="row">
+				<div class="col-5"></div>
+				<div class="col-3">
+					<button type="button" class="btn btn-success mt-5" id="run">Countdown</button>
+					<p id="show"></p>
+				</div>
+				<div class="col-4"></div>
+	</div>
+	<script type="text/javascript">
+		let run=document.getElementById("run");
+		let inputTime=document.getElementById("inputTime");
+		let event=document.getElementById("Event");
+		document.getElementById("run");
+		let count = 0;		
+			run.addEventListener("click", function()
+    {
+    	if (inputTime.value == "") 
+    	{
+      		alert("Input can't be empty" );
+    	} else setInterval(countDown,1000);
+  	});
+		function countDown()
+		{
+			var countDown = new Date(inputTime.value).getTime();
+    			console.log(inputTime.value);
+    			var now = new Date().getTime();
+    			console.log(now);
+    			var distance = countDown - now;
+      				if(distance<0 )
+      			{
+      				count++;
+      				if(count<=1)
+        			alert("Event "+event.value+" happened");	
+        		}
+        		
+        		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			    var hours = Math.floor(
+			        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+			      );
+			    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			    var seconds = Math.floor((distance % (1000 * 60)) / 1000)
+			    document.getElementById("show").innerHTML =
+        			days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        			if (distance < 0) {
+  		        document.getElementById("show").innerHTML = "";
+     		 }
+		}
+		
+	</script>
+		
+
+	
+</body>
+</html>

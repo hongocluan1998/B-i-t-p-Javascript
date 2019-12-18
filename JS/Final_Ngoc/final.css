@@ -1,0 +1,35 @@
+.fas{
+	font-size: 30px;
+}
+h5{
+	color: white;
+}
+.header{
+	background-color: #87CEFA;
+}
+.text-center{
+	margin:auto;
+}
+.dotted{
+	color: red;
+	border-style: dotted;
+}
+.main{
+	background-color: #E0FFFF;
+}
+.left{
+	background-color: #E0FFFF;
+}
+.right{
+	background-color: #E0FFFF;
+}
+.content{
+	height: 450px;
+}
+.footer{
+	background-color: #E0FFFF;
+	height: 70px;
+}
+.container{
+	display: none;
+}

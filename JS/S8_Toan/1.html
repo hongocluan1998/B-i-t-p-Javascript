@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> Bai tap 8 </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./vendor/jquery.validate.min.js">
+	<script
+	type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"
+  ></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row my-3">
+			<div class="col-md-1 m-2">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProduce">
+					Add
+				</button>
+			</div>
+			<div class="col-md-1 m-2">
+				<button type="button" class="btn btn-danger"  onclick="deleteRow()">Delete</button>
+			</div>
+			<div class="col-md-2 m-2">
+				<button type="button" class="btn btn-danger"  onclick="clearLocalStorage()">Delete All</button>
+			</div>
+			<!-- <div class="col-md-1 m-2">
+				<button type="button" class="btn btn-danger"  onclick="addRow()">Test</button>
+			</div>
+			<div class="col-md-1 m-2">
+				<button type="button" class="btn btn-danger"  onclick="testDelete()">testDelete</button>
+			</div> -->
+		</div>
+	</div>
+	<div class="container">
+		<table class="table table-bordered table-hover text-center" id="myTable">
+			<thead class="table-info">
+				<tr>
+					<th>Select</th>
+					<th>Item ID</th>
+					<th>Product Name</th>
+					<th>Actual Price</th>
+					<th>Discount Price</th>
+					<th>Stoct Avaible</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+				<!-- <th id="check_col"></th>
+				<th id="id_col"></th>
+				<th id="name_col"></th>
+				<th id="actualPrice_col"></th>
+				<th id="discountPrice_col"></th>
+				<th id="stoctAvailble_col"></th> -->
+				
+
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<!-- Button trigger modal -->
+
+
+		<!-- Modal -->
+		<div class="modal fade text-center" id="addProduce" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content ">
+					<div class="modal-header  ">
+						<h5 class="modal-title" id="exampleModalLabel">Add Produce</h5>
+						<button type="button" class="close bg-danger" onclick="deleteError()" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form action="" id="formInfoProduce">
+							<div class="form-group row">
+								<label for="id" class="col-md-4 col-form-label text-left">ID</label>
+								<input type="text" class="col-md-5 form-control" id="id" aria-describedby="messErrorId">
+								<small class="col-md-4"></small>
+								<small id="messErrorId" class="form-text text-danger col-md-5 text-left pl-1"></small>
+							</div>
+							<div class="form-group row">
+								<label for="productName" class="col-md-4 col-form-label text-left">Product Name</label>
+								<input type="text" class="col-md-5 form-control" id="productName" >
+								<small class="col-md-4"></small>
+								<small id="messErrorName" class="form-text text-danger col-md-5 text-left pl-1"></small>
+							</div>
+							<div class="form-group row">
+								<label for="actualPrice" class="col-md-4 col-form-label text-left">Actual Price</label>
+								<input type="text" class="col-md-5 form-control" id="actualPrice" onchange="formatInput()" >
+								<small class="col-md-4"></small>
+								<small id="messErrorActualPrice" class="form-text text-danger col-md-5 text-left pl-1"></small>
+							</div>
+							<div class="form-group row">
+								<label for="discountPrice" class="col-md-4 col-form-label text-left">Discount
+									Price</label>
+								<input type="text" class="col-md-5 form-control" id="discountPrice" onchange="formatInput()">
+								<small class="col-md-4"></small>
+								<small id="messErrorDiscountPrice" class="form-text text-danger col-md-5 text-left pl-1"></small>
+							</div>
+							<div class="form-group row">
+								<label for="stockAvailble" class="col-md-4 col-form-label text-left">Stock
+									Availble</label>
+								<input type="text" class="col-md-5 form-control" id="stockAvailble" >
+								<small class="col-md-4"></small>
+								<small id="messErrorStock" class="form-text text-danger col-md-5 text-left pl-1"></small>
+							</div>
+							<button type="reset" class="btn btn-secondary" onclick="deleteError()">Cancel</button>
+							<button type="submit" class="btn btn-primary" onclick=" return(save()) ">Save </button>
+						</form>
+					</div>
+					<!-- <div class="modal-footer">
+		  
+		</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script type="text/javascript" src="./1.js"></script>
+</body>
+
+</html>

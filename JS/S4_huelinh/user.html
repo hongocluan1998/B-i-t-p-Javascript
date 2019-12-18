@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Information</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="user.css">  
+</head>
+<body>
+  <form name="userForm" id="userForm" action="#" method="post">
+    <fieldset class="border p-2 col-6 mx-auto mt-4">
+      <legend class="w-auto">Member Informations</legend>
+      <!-- Email box-->
+       <div class="form-group form-row  mb-2">
+        <label class="col-2 text-right my-auto pr-3">Email:</label>
+        <button type="button" class="button btn-small" id="addEmail">+</button>
+      </div>
+      <!--Show input email here -->
+      <div id="inputEmail"></div>
+      
+      <!-- Phone box-->
+      <div class="form-row row-align mb-2">
+        <label class="col-2 text-right my-auto pr-3">Phone:</label>
+        <button type="button" class="button btn-small" id="addPhone">+</button>
+      </div>
+      <!--Show input Phone here -->
+      <div id="inputPhone"></div>
+
+      <!-- Button -->
+      <div class="form-row mb-2">
+        <label class="col-8 text-right pr-3">&nbsp;</label>
+        <button id="submitForm" type="submit" class="btn btn-primary col-2 btn-block">Submit</button>
+      </div>
+         
+    </fieldset>
+  </form>
+ <script src="user.js"></script>
+
+</body>
+</html>

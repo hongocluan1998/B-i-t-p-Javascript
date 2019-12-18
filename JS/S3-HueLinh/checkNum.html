@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CheckNum</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+  <style type="text/css">
+    body {
+      font-family: 'Lora', serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <label>Enter length of array:</label>
+        <input class="ml-3 pl-2" type="text" name="length" id="length">
+        <button class="btn btn-primary ml-2" id="enter">Enter</button>
+        <div id="form-check" style="margin: 20px auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var lengthInput = document.getElementById('length');
+    var enter = document.getElementById('enter');
+    var formCheck = document.getElementById('form-check');
+
+    enter.addEventListener('click', showForm);
+
+    function getLength() {
+      var length = parseInt(lengthInput.value);
+      return length;
+    }
+    
+    function getNum() {
+      var length = getLength();
+      var numbers = [];
+      for(var i = 1; i <= length; i++) {
+        var id = 'num' + i;
+        var num = parseInt(document.getElementById(id).value);
+        numbers.push(num);
+      }
+      return numbers;
+    }
+
+    function checkNum(index, arr) {
+      var result;
+      var num = arr[index];
+      for(var i = 0; i < (arr.length - 1); i++) {
+        if(index != i){
+          for(var j = i + 1; j < arr.length; j++) {
+            if(index != j){
+              if(num >= (arr[i] + arr[j]) ) {
+                return true;
+              } 
+            }
+          }
+        }
+        
+      }
+      return false;
+    }
+
+    function showForm() {
+      var form = '';
+      var length = getLength();
+      if(isNaN(length)) {
+        alert('Please enter a number!');
+        lengthInput.value = '';
+      }
+      else {
+        for(var i = 1; i <= length; i++) {
+          form +=`<br><label>Num${i}: </label><input class="ml-3 pl-2" type="text" id="num${i}">`;
+        }
+        form += `<br><label>Check: </label><button class="btn btn-primary ml-3" id="check">Check</button>`;
+        formCheck.innerHTML = form;
+        var check = document.getElementById('check');
+        check.addEventListener('click', checkArr); 
+      } 
+    }
+    
+    function checkArr() {
+      console.log('hihi');
+      var numbers = getNum();
+      var check;
+      for(var i = 1; i <= numbers.length; i++) {
+        console.log(numbers[i-1]);
+        if(isNaN(numbers[i-1])) {
+          var id = 'num' + i;
+          console.log(id);
+          document.getElementById(id).value = '';
+          check = '' ;
+        }
+        console.log('hi');
+      }
+      console.log(check);
+      if(check != '') {
+        debugger;
+        for(var i = 0; i < numbers.length; i++) {
+          if(checkNum(i, numbers) == true) {
+            var id = `num${i+1}`;
+            document.getElementById(id).setAttribute('style', 'border-color: red');
+          }
+        } 
+      } else alert('Please enter a number!!');  
+    } 
+  </script>
+</body>
+</html>

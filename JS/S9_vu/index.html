@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task manager</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<!-- <script type="text/javascript" src="jquery.validate.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-6 my-5">
+				<form action="" id="formValidate" onsubmit="return validateForm()">
+					<div class="row">	
+						<div class="col-2 my-3 tasktitle">Task:</div>
+						<div class="col-4 my-3">
+							<input type="text" name="idTask" placeholder="ID task" id="IdTask" class="form-control">
+							<p id="remindersId"></p>
+						</div>
+						<div class="col-6 my-3">
+							<input type="text" name="content" class="form-control" id="Content">
+							<p id="remindersContent"></p>
+						</div>
+						<div class="col-2"></div>
+						<div class="col-10">
+							<button class="btn btn-primary mr-2 my-2" type="submit" id="addTask">Add Task</button>
+							<button class="btn btn-danger" type="button" id="clearTask">Clear Task</button>
+						</div>
+					</div>
+				</form>	
+			</div>
+			<div class="col-6 my-5">
+				<div class="my-3" id="task">
+					<table id="taskManager" class="table table-striped">
+					<thead>
+			        	<!-- <tr>
+			        		<th><button class="btn btn-danger">Delete</button></th>
+			        		<th>ID task</th>
+			        		<th>Content</th>
+			        	</tr> -->
+	        		</thead>
+	        <tbody>
+	        	
+	        </tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+</body>
+</html>
+<style>
+	body div input{
+		font-size: 20px;
+	}
+	.tasktitle{
+		font-size: 24px;
+		font-weight: 600;
+	}
+	#addTask{
+		width: 100px;
+	}
+	#clearTask{
+		width: 100px;
+	}
+	p{
+		color: red;
+		font-style: italic;
+		font-size: 13px;
+	}
+</style>
+<script>
+	function TaskManager(idTask, content){
+		this.idTask = idTask;
+		this.content = content;
+	};
+
+	var addTask = $('#addTask');
+	var clearTask = $('#clearTask');
+	var taskManager = $('#taskManager');	
+	var arrayTask = JSON.parse(localStorage.getItem('tasks')) || [];
+	var selectedIndex = -1;
+	var inputs = document.getElementsByTagName('input');
+
+	addTask.on('click', function(e){
+		e.preventDefault();
+		//Begin validate
+        var idTask = $('#IdTask').val();
+        var content = $('#Content').val();
+        var remindersId = $('#remindersId');
+        var remindersContent = $('#remindersContent');
+        var regex = /^[a-zA-Z0-9]+$/;
+        var index = arrayTask.findIndex(function(element) {
+          return element.idTask == idTask;
+        })
+        if(idTask.length > 4){
+        	remindersId.html('The length of the Id task must be 4') ;
+        	inputs[0].style.border = '1px solid red';
+        	return;
+        }
+        if(!regex.test(idTask)){
+        	remindersId.html('The Id task only consists of letters and numbers');
+        	inputs[0].style.border = '1px solid red';
+        	return;
+        }
+        if(index >= 0){
+        	remindersId.html('This Id task already exists');
+        	inputs[0].style.border = '1px solid red';
+        	return;
+        }
+        if(content.length === 0){
+        	remindersContent.html('The Description must be content');
+        	inputs[1].style.border = '1px solid red';
+        	return;
+        };
+        
+        // End validate
+        
+		var newTask = new TaskManager($('#IdTask').val(), $('#Content').val());
+		arrayTask.push(newTask);
+		Render(taskManager, arrayTask);
+		localStorage.setItem('tasks',JSON.stringify(arrayTask));
+		console.log(arrayTask);
+		$('#IdTask').val('');
+		$('#Content').val('');
+	});
+
+	taskManager.on('click', '.btnDelOneTask', function(){ 
+			selectedIndex = parseInt($(this).attr('alt').replace('Delete', ''));
+			arrayTask.splice(selectedIndex,1);
+			Render(taskManager, arrayTask);
+			localStorage.setItem('tasks',JSON.stringify(arrayTask));
+	});
+
+	function Render(containers, items){
+		var htmlItems = arrayTask.map(function(item, index){
+			console.log(index);
+			return '<tr>'+
+						'<th>'+'<button class="btn btn-danger btnDelOneTask" alt="Delete'+index+'">Delete</button></th>'
+						+'<th>'+'ID: '+item.idTask+'</th>'
+						+'<th>'+item.content+'</th></tr>'
+		}).join('');
+
+		containers.html(htmlItems);
+
+	}
+
+	clearTask.on('click', function(){
+		arrayTask = [];
+		Render(taskManager, arrayTask);
+		localStorage.setItem('tasks',JSON.stringify(arrayTask));
+	});
+
+	$('input').keyup(function(){
+    	$('input').css('text-transform', 'uppercase');
+
+  	});
+
+	$('input').blur(function(){
+		var idTask = $('#IdTask').val();
+        var content = $('#Content').val();
+        var remindersId = $('#remindersId');
+        var remindersContent = $('#remindersContent');
+        var regex = /^[a-zA-Z0-9]+$/;
+        var index = arrayTask.findIndex(function(element) {
+          return element.idTask == idTask;
+        })
+        if(idTask.length<=4 || regex.test(idTask) || index < 0 || content.length > 0){
+        	remindersId.html('');
+        	remindersContent.html('');
+        	inputs[0].style.border = '1px solid blue';
+        	inputs[1].style.border = '1px solid blue';
+        	// return;
+        };
+	});
+
+	$('#IdTask').keydown( function(e){
+    if ($(this).val().length >= 4) { 
+        $(this).val($(this).val().substr(0, 3));
+    }
+	});
+
+	Render(taskManager, arrayTask);
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 3</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+		.formInput{
+			display: inline;
+			width: 200px;
+			margin: 0 5px;
+		}
+		.fault{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container py-5">
+		<div class="row mb-3">
+			<label for="lenArray" class="my-auto text-primary">Nhập chiều dài mảng:</label>
+			<input type="number" name="lenArray" id="lenArray" class="form-control formInput">
+			<button type="button" class="btn btn-success" id="renderArray">Nhập</button>
+		</div>
+			<table id="dataList">	
+			</table>
+		<button type="button" class="btn btn-danger mt-3" id="checkFault">Kiểm tra</button>
+	</div>
+	<script src="anime.min.js"></script>
+	<script src="mine.js"></script>
+</body>
+</html>

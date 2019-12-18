@@ -1,0 +1,29 @@
+table, th, td {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+table {
+    margin: 30px auto 0;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th, td:first-child {
+    width: 70px;
+}
+th:nth-child(2) {
+    width: 100px;
+}
+
+td:nth-child(3) {
+    width: 600px;
+    text-align: justify;
+}
+
+th {
+    background-color: #3c5d42cf;
+}

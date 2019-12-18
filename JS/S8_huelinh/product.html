@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button">
+            <button id="del" class="btn btn-primary btn-sm">Delete</button>
+            <button id="add" type="button" data-toggle="modal" data-target="#myModal"class="btn btn-primary btn-sm">Add</button>
+        </div>
+        <table id="table">
+            <tr>
+                <th> </th>
+                <th>Item ID</th>
+                <th>Product name</th>
+                <th>Actual Price</th>
+                <th>Discount Price</th>
+                <th>Stock Available</th>
+            </tr>
+        </table>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add product</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <form id="formInput">
+                        <!-- Modal body -->
+                        <div class="modal-body" >
+                            <div class=" form-row ml-4 mb-2">
+                                <div class="col-md-4">
+                                    <label for="id" class="pr-3">ID *:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="number" id="id" name="id" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+                            <div class=" form-row ml-4 mb-2">
+                                <div class="col-md-4">
+                                    <label class=" pr-3">Product Name *:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="name" name="name" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+                            <div class=" form-row ml-4 mb-2">
+                                <div class="col-md-4">
+                                    <label class="pr-3">Actual Price *:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="number" id="price" name="price" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+                            <div class=" form-row ml-4 mb-2">
+                                <div class="col-md-4">
+                                    <label class="pr-3">Discount Price *:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="number" id="discount" name="discount" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+                            <div class=" form-row ml-4 mb-2">
+                                <div class="col-md-4">
+                                    <label class="pr-3">Stock available:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="number" id="stock" name="stock" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button id="save" type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="product.js"></script>
+
+
+
+</body>
+</html>

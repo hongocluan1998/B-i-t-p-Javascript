@@ -1,0 +1,32 @@
+table,thead,tbody {
+    display: block;
+    width: 100%;
+}
+
+tr{
+    display: flex;
+}
+
+th,td{
+    display: block;
+    height: fit-content;
+    
+}
+.idTh, .idTd{
+    width: 30%;
+}  
+.taskTh, .taskTd{
+    width: 70%;
+    border-left: 1px solid gray;
+}  
+
+tbody{
+    border: 1px solid grey;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+textarea {
+    resize: none;
+    height: 100px !important;
+ }

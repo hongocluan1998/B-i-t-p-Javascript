@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet'>
+	<title>Count</title>
+	<style type="text/css">
+		*{
+			font-family: Merienda;
+			font-size: 20px;
+			background-color: #FFFFF0;
+		}
+		.container-fluid{
+			margin-top: 10%;
+		}
+		p{
+			margin-top: 30px;
+		}
+		p{
+			color: #808080;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-3">
+				<h2 class="text-center">Menu</h2>
+				<p class="text-center">Cà phê sữa....................10000</p>
+				<p class="text-center">Cà phê đen....................20000</p>
+				<p class="text-center">Sữa nóng........................30000</p>
+				<p class="text-center">Sữa lạnh..........................40000</p>
+			</div>
+			<div class="col-3"></div>
+			<div class="col-4">
+				<h2 class="text-center">Hóa Đơn</h2>
+				<div class="form-group my-5">
+					<select class="form-control" id="input">
+						<option></option>
+						<option>Cà phê sữa</option>
+						<option>Cà phê đen</option>
+						<option>Sữa nóng</option>
+						<option>Sữa lạnh</option>
+					</select>
+				</div>
+				<input type="number" id="number" class="form-control my-5">
+				<button class="btn btn-success ml-5" type="submit" id="run">Thành Tiền</button>
+			</div>
+			<div class="col-1"></div>
+		</div>	
+	</div>
+</body>
+<script type="text/javascript">
+	let run=document.getElementById("run");
+	let input=document.getElementById("input")
+	let number=document.getElementById("number")
+	run.addEventListener("click",function()
+	{
+		if (number.value < 0){
+			alert("Wrong number");
+		} else calculate()
+	});
+	function calculate(){
+		var x=0;
+		var sum=0;
+		switch(input.value){
+			case  'Cà phê sữa':
+			x=10000;	
+			break;
+			case  'Cà phê đen':
+			x=20000;	
+			break;
+			case  'Sữa nóng':
+			x=30000;
+			break;
+			case  'Sữa lạnh':
+			x=40000;	
+		 	break;		
+		}
+		sum = x*number.value;
+		console.log(x);
+		console.log(number.value);
+		console.log(sum);
+		alert("Hóa Đơn là "+sum+ " vnđ");
+	}
+</script>
+</html>

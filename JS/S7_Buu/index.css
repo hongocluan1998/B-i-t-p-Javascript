@@ -1,0 +1,21 @@
+.main {
+    margin-top: 100px;
+}
+.number {
+    margin-left: 65px;
+    padding: 5px 10px;
+    width: 200px;
+}
+.food {
+    margin-left: 35px;
+    
+}
+.show {
+    margin-left: -40px !important;
+}
+.add {
+    margin-left: 60px;
+}
+.value {
+    margin-left: 50px;
+}

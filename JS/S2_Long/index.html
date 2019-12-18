@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 2</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/mystyle.css">
+</head>
+<body>
+	<div class="container">
+		<div class="w-100 text-center mt-3"><h1>Create custom rectangle</h1></div>
+		<form class="pt-5" id="formInput">
+			<div class="row">
+			<div class="input-group col-sm-3">
+				<label for="width" class="my-auto">Width:</label>
+			  <input type="number" class="form-control ml-3" name="width"
+			  id="valWidth" required>
+			  <div class="input-group-append">
+			    <span class="input-group-text" id="basic-addon2">px</span>
+			  </div>
+			</div>
+			<div class="input-group col-sm-3">
+				<label for="height" class="my-auto">Height:</label>
+			  <input type="number" class="form-control ml-3" name="height"
+			  id="valHeight" required>
+			  <div class="input-group-append">
+			    <span class="input-group-text" id="basic-addon2">px</span>
+			  </div>
+			</div>
+			<div class="col-sm-3">
+				<label for="color">Color:</label>
+				<select class="custom-select custom-select w-75 ml-3" name="color" id="chooseColor" required>
+					<option value="">Choose color</option>
+					<option value="red">Red</option>
+					<option value="green">Green</option>
+					<option value="blue">Blue</option>
+					<option value="picker" id="colorPicker">Picker</option>
+				</select>
+					<input type="color" value="#ffff00"  id="valColor" hidden>
+			</div>
+			<div class="col-sm-3 text-left">
+				<button type="button" class="btn btn-success" id="recGenerator" disabled>Generator</button>
+			</div>
+		  </div>
+		</form>
+		<div id="showResult" class="mx-auto mt-5"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="./js/anime.min.js"></script>
+	<script src="./js/mine.js"></script>
+</body>
+</html>

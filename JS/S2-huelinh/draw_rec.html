@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paint</title>
+  <style type="text/css">
+    #rec {
+      margin-top: 50px;
+    };
+  </style>
+</head>
+<body>
+  <!-- <form> -->
+    <span>Width:</span>
+    <input type="text" name="width" id="width" autofocus required>
+    <span>Height:</span>
+    <input type="text" name="height" id="height" required>
+    <span>Color:</span>
+    <select name="color" id="color">
+      <option value="blue">Blue</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="gray">Gray</option>
+    </select>
+    <button id="btn" >Gennerate</button>
+  <!-- </form> -->
+  
+  <div id="rec"></div>
+
+  <script type="text/javascript">
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', drawRec);
+    //btn.addEventListener('click', trans);
+    
+    function render(id, value) {
+      document.getElementById(id).innerHTML = value;
+    }
+
+    function validateNum (width, height, color, rectangle) {
+      if(isNaN(parseInt(width))) {
+        alert('Width is not number, please enter again!');
+        render('rec', '');
+      } else if (isNaN(parseInt(height))) {
+        alert('Height is not number, please enter again!');
+        render('rec', '');
+      } else render('rec', rectangle);
+    }
+
+    function validateNull (width, height, color, rectangle) {
+      if(width == "" || height == "") {
+        alert('Please enter the full value width & height!');
+        render('rec', '');
+      } else validateNum(width, height, color, rectangle);
+    }
+
+    function drawRec() {
+      var width = document.getElementById('width').value;
+      var height = document.getElementById('height').value;
+      var color =  document.getElementById('color').value;
+      console.log(parseInt(width), parseInt(height), color);
+      var rectangle = `<div class="draw" style="width:${width}px; height: ${height}px; background-color: ${color}" class="rec"></div>`;
+      console.log(rectangle);
+      validateNull(width, height, color, rectangle); 
+    }
+
+    
+  </script>
+
+</body>
+</html>

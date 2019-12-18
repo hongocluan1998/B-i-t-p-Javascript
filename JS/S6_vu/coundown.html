@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Countdown</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row my-5">			
+			<div class="col-2"></div>
+			<div class="col-8 main">
+				<div class="col-12 text-center my-5">
+					<h3>COUNTDOWN</h3> 
+				</div>
+				<div class="row my-3">
+					<label class="col-4 col-form-label">Event Name:</label>
+					<div class="col-8">
+						<input type="text" class="form-control" id="nameEvent" placeholder="Name of Events">
+					</div>
+				</div>
+				<div class="row my-3">
+					<label class="col-4 col-form-label">Event Dates:</label>
+					<div class="col-8">
+						<input type="datetime-local" class="form-control" id="numberdate">
+					</div>
+				</div>
+				<div class="col-12 text-center my-5">
+					<button class="btn btn-primary" type="Submit" onclick="countdown()">Submit</button>
+					<p id="notify" class="my-3"></p>
+				</div>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+</body>
+</html>
+<style>
+	.main{
+		background-color: #Dddddd;
+		border-radius: 5px;
+
+	}
+	#notify{
+		color: red;
+		font-size: 30px;
+	}
+</style>
+<script>
+	function countdown(){
+		
+	//Lấy giá trị name event
+	var nameEvent = document.getElementById('nameEvent').value;
+
+	// Lấy giá trị ngày nhập vào
+	var date = document.getElementById('numberdate').value;
+	var arrDate = date.split('');
+	console.log(arrDate);
+
+ 	var countDownDate = new Date(date);//.getTime();
+ 	console.log(countDownDate);
+
+ 	var countDownDate = new Date(date).getTime();
+ 	// console.log(countDownDate);
+ 	var x = setInterval(function() {
+ 	// Thư trong tuần
+ 	var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+ 	
+ 	//Giá trị ngày hiện tại
+ 	var now = new Date().getTime();
+ 	// console.log(now)
+
+ 	var weekdays = weekday[new Date(date).getDay()];
+ 	console.log(weekdays);
+ 	//Khoảng cách giữa ngày hiện tại và ngày nhập vào
+ 	var distance = countDownDate - now;
+ 	console.log(countDownDate);
+ 	if(distance>=0){
+ 	//Tính toán số ngày và giờ đếm ngược
+ 	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+ 	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+ 	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+ 	console.log(days);
+ 	//In ra thông báo đếm ngày
+ 	document.getElementById("notify").innerHTML = "Sự kiện  " + nameEvent + "  còn  " + days + " ngày  " + hours + " giờ " + minutes + '  phút  ' + seconds + ' giây ' + '  (' + weekdays + ','+ arrDate[8] + arrDate[9] + '/' + arrDate[5] + arrDate[6] + '/' + arrDate[0] + arrDate[1] + arrDate[2] + arrDate[3] + ')';
+ 	}
+ 	// If the count down is finished, write some text
+	else {
+	   clearInterval(x);
+	   alert("Đã đếm xong rồi")
+  	}
+
+ 	
+ 	}, 1000);
+ }
+</script>

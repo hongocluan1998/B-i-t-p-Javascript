@@ -1,0 +1,70 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+}
+header{
+    margin: 5px;
+}
+button{
+    width: 130px;
+    margin: 5px;
+}
+.logo{
+    font-family: monospace;
+    font-size: 35px;
+    color: red;
+}
+.action-data-table{
+    display: flex;
+    justify-content: space-around;
+}
+.action-data-table button{
+    width: 40px;
+    background-color: cornflowerblue;
+}
+.arrow{
+    width: 25px;
+    height: 20px;
+    background-color: darkgray;
+}
+.display-color{
+    width: 30px;
+    height: 30px;
+    padding: 0%;
+    border: 1px solid black;
+
+}
+.border-none{
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.min-width-500px{
+    min-height: 400px;
+}
+.zone-edit-list{
+    width: 75%;
+    height: 300px;
+
+}
+.label-zone-list{
+    width: 25%;
+}
+#searchRow{
+    display: none;
+}
+.display{
+    display: table-row !important;
+}
+#cancelEdit,#saveEdit,#undoEdit{
+    color: whitesmoke;
+    width: 130px;
+    margin: 5px;
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    display: block;
+    cursor: pointer;
+    background-color:gray;
+    border: 1px solid gray;
+}

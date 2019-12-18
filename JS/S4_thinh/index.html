@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="./javascript/index.js" defer></script>
+</head>
+
+<body>
+  
+  <div class="container">
+    <div class="row bg-light  h-600px">
+      <div class="col-md-6 position-relative">
+        <img src="./picture/sontungfull.png" alt="" class="w-100 m-auto p-5 pb-0 mb-0 position-absolute" style="bottom: 0;">
+      </div>
+      <div class="col-md-6 my-5">
+        <h1> Join with us</h1>
+        <h6> You can eat everything in the world</h6>
+        <br>
+        <form id='formEmailPhone' onsubmit="return SubmitForm()" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <i class="fas fa-plus-circle d-inline-block mx-2 cursorCopy" id="addEmailInput"></i>
+            <div id="emailInputElement">
+              <div class="d-flex align-items-center w-75  ">
+                <input type='text' class='form-control d-block m-2 ' id='inputEmail1'placeholder="Enter email">
+                <i class='sub fas fa-minus-circle d-inline-block mx-2 cursorAlias' id='subEmailInput1'></i>
+
+              </div>
+            </div>
+            <small id='commentEmailId' style="display: none;">Bạn chỉ có thể nhập tối đa 5 email, tối thiểu 1 email</small>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Phone Number</label>
+            <i class="fas fa-plus-circle d-inline-block mx-2 cursorCopy" id="addPhoneNumber"></i>
+            <div id="phoneInputElement">
+              <div class="d-flex align-items-center w-75">
+                <span>+</span>
+                <input type='text' class='form-control w-50px m-2' id='inputNationalPhoneNumber1' placeholder='84'/>
+                <span>-</span>
+                <input type='text' class='form-control m-2' id='inputPhoneNumber1' placeholder='123456789'/>
+                <i class='sub fas fa-minus-circle d-inline-block mx-2 cursorAlias' id='subPhoneNumberInput1'></i>
+              </div>
+            </div>
+            <small id='commentPhoneId' style='display: none;'>Bạn chỉ có thể nhập tối đa 5 sdt và tối thiểu 1 sdt</small>
+
+
+          </div>
+
+          <button type="submit" class="btn btn-primary" id='submitBottom'>Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

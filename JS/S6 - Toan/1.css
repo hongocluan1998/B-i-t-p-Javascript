@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  @font-face {
+    font-family: 'myFont';
+    src: url('./victoria.ttf');
+}
+  body {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'myFont', sans-serif;
+    color: #fff;
+    
+  }
+  body {
+    background: -webkit-gradient(linear, right top, left top, from(#246655), color-stop(#663624), color-stop(#ce3082), to(#54ce30));
+    background: linear-gradient(270deg, #246655, #663624, #ce3082, #54ce30);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 10s ease infinite;
+            animation: AnimationName 10s ease infinite;
+    position: relative;
+  }
+  .box{
+    margin: auto;
+    width: 50%;
+    height: 300px;
+    background-color: rgba(16, 37, 30, 0.883);
+  }
+  .hidden{
+    
+    background-color: blueviolet;
+  }
+.demo{
+  width: 500px;
+  height: 500px;
+  background-color:#0000;
+}
+ 
+  
+  
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Product List</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+  <script src="./javascripts/S8_Thinh_index2.js" defer></script>
+
+
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row ">
+      <div class="col-md-4">
+        <div class="d-flex">
+          <button type="button" class="btn btn-primary m-2" id="addButton">Add</button>
+          <button type="button" class="btn btn-primary m-2" id="deleteButton">Delete</button>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h1>Product List</h1>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th class="d-flex align-items-center justify-content-around">
+                <span>Select All</span>
+                <input type="checkbox" class="" name="" id="selectAll" value="selectAll">
+              </th>
+              <th>Iterm Id</th>
+              <th>Product Name</th>
+              <th>Actual Price </th>
+              <th>Discount Price</th>
+              <th>Stock Available</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid form-container-nodisplay" id="formContainer">
+    <div class="row w-100 d-flex mt-5 justify-content-center" id="formRow">
+      <div class="col-md-5 ">
+        <form id="form" class=" bg-white p-2 px-5 rounded-lg border border-info">
+          <h1 class="m-3 text-center text-info "> ADD NEW PRODUCT</h1>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="itermId" class="">Iterm Id</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" id="itermId" placeholder="1" name="itermId">
+            </div>
+
+
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="productName" class="">Product Name</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" id="productName" placeholder="1" name="productName">
+            </div>
+
+
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="actualPrice" class="">Actual Price</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control " id="actualPrice" placeholder="1" name="actualPrice">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="discountPrice" class="">Discount Price</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control " id="discountPrice" placeholder="1" name="discountPrice">
+            </div>
+
+
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="stockAvailable" class="">Stock Available</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control " id="stockAvailable" placeholder="1" name="stockAvailable">
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary m-2" id="saveButton">Save</button>
+            <button type="button" class="btn btn-primary m-2" id="cancelButton">Cancel</button>
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

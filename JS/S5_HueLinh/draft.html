@@ -1,0 +1,55 @@
+var check = true;
+  console.log('checkabc');
+  var checkk = checkValidate(check, () => {
+    console.log('validateempty');
+    checkValidate(validateEmpty(), () => {
+      console.log('not empty, validateUsername');
+      checkValidate(validateUsername(), () => {
+        checkValidate(validatePassword(), () => {
+          checkValidate(validatePasswordConfirm(), () => {
+            checkValidate(validateFirstName(), () => {
+              checkValidate(validateLastName(), () => {
+                checkValidate(validateEmail(), () => {
+                  checkValidate(validatePhone(), () => {
+                    return true;
+                  })
+                })
+              })
+            })
+          })
+        })
+      })
+    })
+  });
+
+  console.log('checkk', checkk);  
+
+
+  
+  // if(validateEmpty()) {
+
+  //   if(validateUsername()) {
+
+  //     if(validatePassword()) {
+
+  //       if (validatePasswordConfirm()) {
+
+  //         if(validateFirstName()) {
+
+  //           if( validateLastName() ) {
+
+  //             if (validateEmail() ) {;
+  //             check = validatePhone();
+  //             } else check = false;
+
+  //           } else check = false;
+
+  //         } else check = false;
+          
+  //       } else check = false;
+
+  //     } else check = false;
+
+  //   } else check = false;
+
+  // } else check = false;

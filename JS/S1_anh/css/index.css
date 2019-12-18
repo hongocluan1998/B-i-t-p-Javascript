@@ -1,0 +1,22 @@
+body {
+  height: 100%;
+}
+.box-number {
+  width: 80%;
+  height: auto;
+  font-size: 30px;
+}
+.warp-container {
+  margin-top: 10%;
+}
+.header-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+#numberMax {
+  font-size: 50px;
+}
+.big-number {
+    border:royalblue solid 5px;
+}

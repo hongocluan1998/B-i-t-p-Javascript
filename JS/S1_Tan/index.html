@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<p>
+			<span>Số 1: </span>
+			<input type="number" id="input1" value="4">
+			<br>
+			<span>Số 2: </span>
+			<input type="number" id="input2" value="6">
+			<br>
+			<span>Số 3: </span>
+			<input type="number" id="input3" value="5">
+			<br>
+			<span>Số 4: </span>
+			<input type="number" id="input4" value="10">
+			<br>
+			<span>Số 5: </span>
+			<input type="number" id="input5" value="11">
+			<br>
+			<span>Số 6: </span>
+			<input type="number" id="input6" value="7">
+			<br>
+			<span>Số 7: </span>
+			<input type="number" id="input7" value="0">
+			<br>
+			<span>Số 8: </span>
+			<input type="number" id="input8" value="7">
+			<br>
+			<span>Số 9: </span>
+			<input type="number" id="input9" value="12">
+			<br>
+			<span>Số 10: </span>
+			<input type="number" id="input10" value="9">
+			<br>
+			<span>Số lớn nhất: </span>
+			<input type="number" id="abc" >
+			<br>
+			<button id="butt" onclick="findMax()">Click</button>
+		</p>
+	</body>
+	<script>
+		function findMax(){
+			var array = [document.getElementById("input1").value, document.getElementById("input2").value, document.getElementById("input3").value, document.getElementById("input4").value, document.getElementById("input5").value, document.getElementById("input6").value, document.getElementById("input7").value, document.getElementById("input8").value, document.getElementById("input9").value, document.getElementById("input10").value];
+			console.log(array);
+			for (var i = 0; i < array.length; i++) {
+				var max = array[0];
+				if (array[i] > max){					
+					max = array[i];
+				}
+			}
+			console.log(max);
+			document.getElementById("abc").value = max;
+		}
+	</script>
+</html>

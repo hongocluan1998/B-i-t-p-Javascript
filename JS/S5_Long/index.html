@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Excercise 5</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+		@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+		* {
+		  margin: 0;
+		  padding: 0;
+		}
+
+		body {
+		  font-family: "Open Sans";
+		  font-size: 14px;
+		}
+
+		.container {
+		  width: 500px;
+		  margin: 25px auto;
+		}
+
+		form {
+		  padding: 20px;
+		  background: #2c3e50;
+		  color: #fff;
+		  border-radius: 4px;
+		}
+		form label,	form input,	form button {
+		  border: 0;
+		  margin-bottom: 5px;
+		  display: block;
+		  width: 100%;
+		}
+		form input {
+		  height: 25px;
+		  line-height: 25px;
+		  background: #fff;
+		  color: #000;
+		  padding: 0 6px;
+		  box-sizing: border-box;
+		}
+		form button {
+		  height: 30px;
+		  line-height: 30px;
+		  background: #e67e22;
+		  color: #fff;
+		  margin-top: 10px;
+		  cursor: pointer;
+		}
+		form .error {
+		  color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2 class="text-warning my-4 text-center"><b>Register</b></h2>
+		<form action="" id="formData" method="">
+			<div class="row">
+				<div class="col-5">
+					<label for="userName">Username(*)</label>
+				</div>
+				<div class="col-7"><input type="text" name="userName" id="userName"></div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="password">Password(*)</label>
+				</div>
+				<div class="col-7"><input type="password" name="password" id="password"></div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="rePassword">Confirm password(*)</label>
+				</div>
+				<div class="col-7"><input type="password" name="rePassword" id="rePassword"></div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="firstName">First name(*)</label>
+				</div>
+				<div class="col-7"><input type="text" name="firstName" id="firstName"></div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="lastName">Last name(*)</label>
+				</div>
+				<div class="col-7"><input type="text" name="lastName" id="lastName"></div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="email">Email(*)</label>
+				</div>
+				<div class="col-7"><input type="email" name="email" id="email"></div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="phoneNumber">Phone number(*)</label>
+				</div>
+				<div class="col-7"><input type="text" name="phoneNumber" id="phoneNumber"></div>
+			</div>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="jquery.validate.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#formData').validate({
+				// onkeyup: false,
+				// onfocusout: false,
+				rules: {
+					userName: {
+						required: true,
+						formText: true
+					},
+					password: {
+						required: true,
+						minlength: 8
+					},
+					rePassword: {
+						required : true,
+						equalTo: "#password"
+					},
+					firstName: {
+						required: true,
+						formText: true
+					},
+					lastName: {
+						required: true,
+						formText: true
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					phoneNumber: {
+						required: true,
+						formatPhNum: true,
+						minlength: 10,
+						maxlength: 11
+					}
+				},
+				messages: {
+					userName: {
+						required: "Please enter your username",
+						formText: "Wrong format"
+					},
+					password: "Please enter your password (at least 8 characters)",
+					rePassword: {
+						required: "Please enter confirm password",
+						equalTo: "Password mismatch"
+					},
+					firstName: {
+						required: "Please enter your firstname",
+						formText: "Wrong format"
+					},
+					lastName: {
+						required: "Please enter your lastname",
+						formText: "Wrong format"
+					},
+					email: {
+						required: "Please enter your email",
+						email: "Please enter a valid email address"
+					},
+					phoneNumber: {
+						required: "Enter your phone number",
+						formatPhNum: "This value doesn\'t match the acceptable pattern"
+					}
+				},
+				 showErrors: function(errorMap, errorList) {
+					errorList.forEach(function(error) {
+					if ($(error.element).is('[contenteditable][name]')) {
+						
+					}
+					});
+					this.defaultShowErrors();
+			    },
+				submitHandler: function() { 
+					$('#form').submit();
+					setTimeout(function(){alert("Submitted!");},500);
+
+				}
+			})
+			$.validator.addMethod('formatPhNum',function(value,element){
+				return /\(?([0]{1})\)?([0-9]{9})/.test(value);
+			});
+			$.validator.addMethod('formText',function(value,element){
+				return /^[A-Za-z0-9]+$/.test(value);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>S5_Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="Js.js"></script>
+</head>
+<body>
+	<div class="container ">
+		<div class="row">
+			<div class="col-3"></div>
+				<div class=" main">
+					<div class="col-12 text-center mt-5 my-5">
+						<h3>Đăng ký thành viên</h3> 
+					</div>
+					<form name="myForm" action="#" onsubmit="return validateForm()" method="post">
+						  <div class="form-group row">
+						    <label class="col-5 col-form-label">Tên đăng nhập(*)</label>
+						    <div class="col-7">
+						      <input type="text" class="form-control" id="inputUserName" name="userName">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <label for="inputPassword" class="col-5 col-form-label">Password(*)</label>
+						    <div class="col-7">
+						      <input type="password" class="form-control" id="Password" name="passWord">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <label for="inputPassword" class="col-5 col-form-label">Nhập lại password(*)</label>
+						    <div class="col-7">
+						      <input type="password" class="form-control" id="inputPassword">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <label class="col-5 col-form-label">Họ của bạn(*)</label>
+						    <div class="col-7">
+						      <input type="text" class="form-control" id="inputFirstName">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <label class="col-5 col-form-label">Tên của bạn(*)</label>
+						    <div class="col-7">
+						      <input type="text" class="form-control" id="inputLastName">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <label class="col-5 col-form-label">Email(*)</label>
+						    <div class="col-7">
+						      <input type="text" class="form-control" id="Email">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <label class="col-5 col-form-label">Số điện thoại(*)</label>
+						    <div class="col-7">
+						      <input type="text" class="form-control" id="Phone">
+						    </div>
+						  </div>
+						  <div class="form-group row">
+						    <div class="col-5"></div>
+						    <div class="col-7">
+						      <button class="btn btn-secondary">Đăng ký</button>
+						    </div>
+						  </div>
+					</form>
+				</div>
+			<div class="col-3"></div>
+		</div>	
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 4</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+	<style>
+		*{
+			font-family: 'PT Sans', sans-serif;
+		}
+		.formInput{
+			width: 200px;
+			display: inline;
+			margin: 5px 0;
+		}
+		.formInputCode{
+			width: 50px;
+			display: inline;
+			margin: 5px 5px;
+		}
+		.custom{
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container pt-3">
+		<div class="row" id="boxEmail">
+		<h1>Thông tin user</h1>
+			<div class="col-md-12 mt-3">
+				<span class="my-auto mx-3">Email:</span>
+				<button type="button" class="btn btn-primary" id="newEmail">+</button>
+			</div>
+		</div>
+		<div class="row mt-3" id="boxPhone">
+			<div class="col-md-12">
+				<span class="my-auto mx-3">Phone:</span>
+				<button type="button" class="btn btn-primary" id="newPhone">+</button>
+			</div>
+		</div>
+		<div class="custom mt-3 text-center">
+			<button type="button" class="btn btn-success" id="submitForm">Submit</button>
+		</div>
+	</div>
+	<script src="mine.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example</title>
+</head>
+<body>
+  <span>Num1:</span> 
+  <input type="number" name="num1" id="num1">
+  <br>
+  <span>Num2:</span>
+  <input type="number" name="num2" id="num2">
+  <br>
+  <span>Num3:</span>
+  <input type="number" name="num3" id="num3">
+  <br>
+  <span>Num4:</span>
+  <input type="number" name="num4" id="num4">
+  <br>
+  <span>Num5:</span>
+  <input type="number" name="num5" id="num5">
+  <br>
+  <span>Num6:</span>
+  <input type="number" name="num6" id="num6">
+  <br>
+  <span>Num7:</span>
+  <input type="number" name="num7" id="num7">
+  <br>
+  <span>Num8:</span>
+  <input type="number" name="num8" id="num8">
+  <br>
+  <span>Num9:</span>
+  <input type="number" name="num9" id="num9">
+  <br>
+  <span>Num10:</span>
+  <input type="number" name="num10" id="num10">
+  <br>
+  <span>MaxNum:</span>
+  <input type="text" name="result" id="result">
+  <br>
+  <button type="button" onclick="show()">Show answer</button>
+
+  <script type="text/javascript">
+    function show() {
+      var max = document.getElementById('num1').value;
+      for(var i = 2; i <= 10; i++) {
+        var id = 'num' + i;
+        var value = parseInt(document.getElementById(id).value);
+        if(value > max) {
+          max = value;
+        }
+      }
+      document.getElementById('result').value = max;
+    }
+  </script>
+</body>
+</html>

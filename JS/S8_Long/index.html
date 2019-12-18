@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 6 - Long</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+		body{
+			font-family: "Open Sans";
+			background-color: #eaeaea;
+		}
+		.formInput{
+			display: inline;
+			margin: 5px 0;
+		}
+		form {
+			padding: 20px;
+			background: #363a3e;
+			color: #fff;
+			border-radius: 4px;
+		}
+		form input{
+			color:  #000!important;
+		}
+		form .error{
+			color: #f00;
+		}
+		label[class="custom"]{
+			height: 48px;
+			display: flex;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row py-3">
+			<button class="btn btn-danger mr-3" data-event="delete">Delete</button>
+			<button class="btn btn-success" data-event="add" data-toggle="modal" data-target="#createProduct">Add</button>
+		</div>
+		<div class="row">
+			<table class="table table-hover table-secondary">
+			</table>
+		</div>
+		<div class="modal fade" id="createProduct" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title w-100 text-center text-success font-weight-bold ml-5">Create new Product</h5>
+						<button type="button" class="close" data-event="clear" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<form action="" id="addItem" class="w-100 py-0">
+						<div class="modal-body">
+							<div class="row px-2"><div class="col-4"><label for="idItem" class="custom">Item ID*</label></div>
+							<div class="col-8"><input type="text" name="id" class="form-control formInput"></div></div>
+							<div class="row px-2"><div class="col-4"><label for="name" class="custom">Product Name*</label></div>
+							<div class="col-8"><input type="text" name="name" class="form-control formInput"></div></div>
+							<div class="row px-2"><div class="col-4"><label for="price" class="custom">Actual Price*</label></div>
+							<div class="col-8"><input type="text" name="price" class="form-control formInput"></div></div>
+							<div class="row px-2"><div class="col-4"><label for="discount" class="custom">Discount Price*</label></div>
+							<div class="col-8"><input type="text" name="price" class="form-control formInput"></div></div>
+							<div class="row px-2"><div class="col-4"><label for="available" class="custom">Stock Available</label></div>
+							<div class="col-8"><input type="text" name="stock" class="form-control formInput"></div></div>			
+						</div>
+						<div class="modal-footer">
+							<div class="w-100 text-center">
+								<button type="submit" class="btn btn-success mr-3">Create</button>
+								<button type="reset" class="btn btn-secondary" data-event="clear">Clear</button>
+							</div>
+						</div>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="jquery.validate.min.js"></script>
+	<script>
+		let items = JSON.parse(localStorage.getItem('items')) || [];
+		const showItem = document.querySelector('table');
+		const inputItems = document.querySelectorAll('input');
+		const addItem = document.querySelector('#addItem');
+		const table = document.querySelector('table');
+		const delButton = document.querySelector('button[data-event="delete"]');
+		const resetForm = document.querySelectorAll('button[data-event="clear"]');
+		const numbers = document.querySelectorAll('input[name="price"]');
+		let status = false;
+		function convertMoney(e){
+			let valueInput = e.target.value.split(',').join('').split('');
+			let nums = valueInput;
+			let newArr = [];
+			let len = nums.length;
+			nums.forEach((n,index) => {
+			if((index % 3) === (len % 3) && index !==0) newArr.push(',');
+			newArr.push(n);
+			});
+			e.target.value = newArr.join('');
+			status = false;
+		}
+		numbers.forEach(number => number.addEventListener('focusin',() => status = true));
+		numbers.forEach(number => number.addEventListener('focusout',(e) => status && convertMoney(e)));
+		render(items,table);
+		function addItems(){
+			if(checkIdProduct(inputItems[0].value)){
+			    const item = {
+			    	'id' : inputItems[0].value,
+			    	'name' : inputItems[1].value,
+			    	'price' : inputItems[2].value,
+			    	'discount' : inputItems[3].value,
+			    	'available' : inputItems[4].value
+			    };
+			    items.push(item);
+			    localStorage.setItem('items',JSON.stringify(items));
+			    render(items, table);
+			    return true;
+			}
+			return false;
+		}
+		function checkIdProduct(newId){
+			const idList = document.querySelectorAll('th[scope="row"]');
+			return Array.from(idList)
+						.map(item => item.innerText)
+						.every(item => item != newId);
+		}
+		function render(items = [], table){
+			const heading = `<tr class="bg-success">
+					<td><input type="checkbox" name="choose" value="" id="checkAll"></td>
+					<th scope="col">Item ID</th>
+					<th scope="col">Product Name</th>
+					<th scope="col">Actual Price</th>
+					<th scope="col">Discount Price</th>
+					<th scope="col">Stock Available</th>
+		    		</tr>`;
+			table.innerHTML = heading + items.map((item,index) => {
+				return `<tr>
+					<td><input type="checkbox" name="choose" value="" data-index=${index}></td>
+					<th scope="row">${item.id}</th>
+					<td>${item.name}</td>
+					<td>${item.price}</td>
+					<td>${item.discount}</td>
+					<td>${item.available}</td></tr>`;
+			}).join('');
+			document.querySelector('#checkAll').addEventListener('change',checkedAll);
+		}
+		function delProduct(){
+			let updateProducts = [];
+			document.querySelectorAll('input[data-index]').forEach(item => {
+				if(item.checked !== true) updateProducts.push(items[`${item.dataset.index}`]);
+			})
+			items = updateProducts;
+			localStorage.setItem('items',JSON.stringify(items));
+			render(items,table);
+		}
+		function checkedAll(){
+			document.querySelectorAll('input[data-index]').forEach(item => {
+				item.checked = this.checked;
+			})
+		}
+		function clearError(){
+			document.querySelectorAll('label[class="error"]').forEach(item => item.innerHTML = '');
+		}
+		delButton.addEventListener('click',delProduct);
+		resetForm.forEach(button => button.addEventListener('click',clearError));
+		$(document).ready(function() {
+			$('#addItem').submit(function(e){
+				e.preventDefault();
+			}).validate( {
+				rules: {
+					id: {
+						required: true,
+						ruleNumber: true
+					},
+					name: {
+						required: true,
+						ruleText: true
+					},
+					price: {
+						required : true,
+						ruleNumber: true
+					},
+					discount: {
+						required: true,
+						ruleNumber: true
+					},
+					stock: {
+						required: true,
+						ruleNumber: true
+					}
+				},
+				messages: {
+					id: {
+						required: "Please enter product's id",
+						ruleNumber: "Wrong format",
+					},
+					name: {
+						required: "Please enter product's name",
+						ruleText: "Wrong format"
+					},
+					price: {
+						required: "Please enter product's price",
+						ruleNumber: "Wrong format"
+					},
+					discount: {
+						required: "Please enter discount price for this product",
+						ruleNumber: "Wrong format"
+					},
+					stock: {
+						required: "Please enter number's product stock available",
+						ruleNumber: "Wrong format"
+					}
+				},
+				submitHandler: function() {
+					if(!addItems()) alert('This ID already exist!!!');
+					$('#addItem')[0].reset();
+				}
+			});
+			$.validator.addMethod('ruleNumber',function(value){
+				return /^(([0-9]{1,3},|[0-9]{0})([0-9]{3},)*[0-9]{3}|[0-9]+)$/.test(value);
+			});
+			$.validator.addMethod('ruleText',function(value){
+				return /^[A-Za-z0-9]+$/.test(value);
+			});
+		});
+	</script>
+</body>
+</html>

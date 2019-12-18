@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Company Details</title>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div class="row">
+            <h3>Edit Company</h3>
+        </div>
+        <div class="row">
+            <p>The setttings for each company can be configured below</p>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Company Name *:</b>
+                    </div>
+                    <div class="col-md-6">
+                            <input type="text" class="form-control" id="name">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Openrating Conpany :</b>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Maximum Working Hours *:</b>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" min="1" max="8" style="width: 50px;" class="form-control" id="hoursWork">
+                    </div>
+                    </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Zone List :</b>
+                    </div>
+                    <div class="col-md-6">
+                    <select id="zoneList" class="custom-select" multiple>
+                        <option value="Zone 1" selected>Zone 1</option>
+                        <option value="Zone 2">Zone 2</option>
+                        <option value="Zone 3">Zone 3</option>
+                        <option value="Zone 4">Zone 4</option>
+                        <option value="Zone 5">Zone 5</option>
+                        <option value="Zone 6">Zone 6</option>
+                        <option value="Zone 7">Zone 7</option>
+                        <option value="Zone 8">Zone 8</option>
+                        <option value="Zone 9">Zone 9</option>
+                        <option value="Zone 10">Zone 10</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <button id="right" style="width: 70px;"><i class="fa fa-angle-double-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <button id="left" style="width: 70px;"><i class="fa fa-angle-double-left"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Status *:</b>
+                        </div>
+                        <div class="col-md-6">
+                            <select id="status">
+                                <option value="Enable">Enable</option>
+                                <option value="Disable">Disable</option>
+                             </select>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Color Code *</b>
+                        </div>
+                        <div class="col-md-6">
+                            <input style="width: 50px;" type="color" class="form-control" id="color">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Whitelisted Zones</b>
+                        </div>
+                        <div class="col-md-6">
+                            <select id="whiteListed" class="custom-select" multiple>
+                            
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button id="save" type="button" class="btn btn-primary">Save</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button onclick="window.close('./CompanyDetails.html')" id="cancel" type="button" class="btn btn-danger">Cancel</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-secondary">History</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./CompanyDetails.js"></script>
+</body>
+</html>

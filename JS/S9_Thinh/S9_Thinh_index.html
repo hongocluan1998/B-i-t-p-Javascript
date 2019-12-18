@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="S9_Thinh_style.css">
+    
+    <script src="S9_Thinh_index.js" defer></script>
+  </head>
+  <body>
+      <div class="container mt-5 b">
+          <div class="row border border-dark ">
+              <div class="col-md-6 bg-light">
+                    <h3 class="p-2 text-center">Task Manager </h3>
+                    <div class="row m-2 mt-5 align-items-center ">
+                      <div class="col-2 p-0">
+                          <label for="id">ID Task</label>
+                      </div>
+                      <div class="col-10 p-0">
+                          <input type="text" class="form-control" value="A123" name="id" id="id" placeholder="1234">   
+                      </div>
+                      
+                                        
+                    </div>
+                    <div class="row m-2 align-items-center " >
+                        <div class="col-2 p-0">
+                      <label for="task">Task</label>
+                      </div>
+                      <div class="col-10 p-0">
+                          <input type="text" class="form-control" value= 'An Sang' name="task" id="task" placeholder="">  
+                      </div>
+                                        
+                    </div>
+                    <div class="row m-2 justify-content-end">
+                        <button type="button" class="btn btn-dark mx-2 " id="add">Add Task</button>
+                        
+                        <button type="button" class="btn btn-dark mx-2 " id="reset">Reset All</button>
+                    </div>
+       
+                   
+              </div>
+              <div class="col-md-6 bg-light table-striped">
+                  <div id="ouput">
+                      <h3 class="p-2 text-center">Tasks List</h3>
+                      <table class="table text-center">
+                        <thead class="thead-dark " data-sorted="0">
+                          <tr >
+                            <th>ID</th>
+                            <th> Task</th>
+                          </tr>
+                        </thead>
+                        <tbody class="">
+                          
+                        </tbody>
+                      </table>
+                      <small>Click task rows and click 'Delete row' Button to delete !!</small>
+                      <div>
+                        <button type="button" class="btn btn-dark m-2 mt-0 float-right" id="delete">Delete Rows</button>
+                      </div>
+                     
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </body>
+</html>

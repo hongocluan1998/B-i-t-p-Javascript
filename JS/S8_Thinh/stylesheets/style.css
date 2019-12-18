@@ -1,0 +1,13 @@
+.form-container-nodisplay{
+    display: none;
+}
+.form-container-display{
+    background-color: rgba(38, 99, 116, 0.23);
+    position: fixed;
+    top:0;
+    left: 0;
+}
+#formContainer{
+    transition: .5s;
+}
+

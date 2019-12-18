@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Time</title>
+</head>
+
+<body onload="checkMinutes()">
+    <div class="container">
+        <br>
+        <br>
+        <div class="row text-center" style="color: blue; font-size: 30px; font-family: cursive">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Việt Nam</div>
+            <div class="col-md-2">New York</div>
+            <div class="col-md-2">Tai Wan</div>
+            <div class="col-md-2">Indo</div>
+            <div class="col-md-2">China</div>
+            <div class="col-md-1">UTC</div>
+        </div>
+        <br>
+        <br>
+        <div class="row text-center" style="color: crimson;">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <p id="demo1"></p>
+            </div>
+            <div class="col-md-2">
+                <p id="demo2"></p>
+            </div>
+            <div class="col-md-2">
+                <p id="demo3"></p>
+            </div>
+            <div class="col-md-2">
+                <p id="demo4"></p>
+            </div>
+            <div class="col-md-2">
+                <p id="demo5"></p>
+            </div>
+            <div class="col-md-1">
+                <p id="demo6"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+<script>
+    var x = new Date().getHours();
+
+    var u = new Date().getSeconds();
+
+    function checkMinutes() {
+        var y = new Date().getMinutes();
+        var x = new Date().getHours();
+        var u = new Date().getSeconds();
+        if (y < 10) {
+            y = "0" + y;
+        } else {
+            y = y;
+        }
+        if (u < 10) {
+            u = "0" + u;
+        } else {
+            u = u;
+        }
+        document.getElementById("demo1").innerHTML = x + ":" + y + ":" + u;
+        // việt nam
+        var z = new Date();
+        z.setHours(z.getHours() + 12);
+        var m1 = z.getHours();
+        document.getElementById("demo2").innerHTML = m1 + ":" + y + ":" + u;
+
+        // niu dốt
+
+        var i = new Date();
+        i.setHours(i.getHours() + 1);
+        var m2 = i.getHours();
+        document.getElementById("demo3").innerHTML = m2 + ":" + y + ":" + u;
+
+        // tai wan
+
+        document.getElementById("demo4").innerHTML = x + ":" + y + ":" + u;
+
+        // indo cùng múi giờ với việt nam
+
+        document.getElementById("demo5").innerHTML = m2 + ":" + y + ":" + u;
+
+        // chai na cùng múi giờ với tai wan
+
+        var p = new Date();
+        p.setHours(p.getHours() + 5);
+        var m3 = p.getHours();
+        document.getElementById("demo6").innerHTML = m3 + ":" + y + ":" + u;
+
+        // UTC
+    }
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>S11 Callback function</title>
+</head>
+
+<body>
+<style>
+center{
+    width: 85%;
+    margin: auto;
+}
+ul{
+    width: 100px;
+}
+button {
+    margin-top: 50px;
+}
+</style>
+    <center>
+        <button type="button">Start Buttom</button>
+        <ul>
+        </ul>
+    </center>
+
+    <script>
+        let centerList = document.querySelector('ul');
+        let button = document.querySelector('button');
+        function changeColor() {
+            button.style.backgroundColor='red';
+        }
+
+        function render(Callback) {
+                for (var i = 0; i <= 5000; i++) {
+                let node = document.createElement("li");
+                node.textContent = i;
+                node.style.color = 'black';
+                centerList.appendChild(node);
+            }
+            Callback(); 
+            }
+        button.addEventListener('click', () => render(changeColor));
+    </script>
+</body>
+</html>

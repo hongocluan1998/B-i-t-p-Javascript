@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FORM</title>
+</head>
+<style type="text/css">
+	body{
+		background-color: #F0FFFF;
+	}
+	.row{
+		margin:20px auto;
+	}
+	h3{
+		color: #808080;
+		margin-top: 30px;
+	}
+</style>
+<body>
+	<div class="container-fluid">
+		<h3 class="text-center">Form Register</h3>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-12">
+						<form action="" class="from_register" method="">
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">Username(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="Username" id="userName">	
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">Password(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="Password" id="Password">	
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">Confirm Password(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="rePassword" id="rePassword">	
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">FirstName(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="firstName" id="firstName">	
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">LastName(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="lastName" id="lastName">	
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">Email(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="email" id="email">	
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">		
+									<label class="form-group">PhoneNumber(*)</label>
+								</div>
+								<div class="col-md-7">
+									<input class="form-control" type="text" name="number" id="phoneNumber">	
+								</div>
+							</div>
+							<div class="row">
+                 				<div class="col-md-5"></div>
+                 				<div class="col-md-7">
+									<button type="" onclick="valiDate()" class="btn btn-primary">Submit</button>
+								</div>	
+							</div>	
+						</form>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>	
+	</div>
+	<script type="text/javascript">
+		function valiDate()
+		{
+			var userName = document.getElementById("userName").value;
+			var pass =document.getElementById("Password").value;
+			var rePass =document.getElementById("rePassword").value;
+			var firstName =document.getElementById("firstName").value;
+			var lastName =document.getElementById("lastName").value;
+			var email =document.getElementById("email").value;
+			var phone =document.getElementById("phoneNumber").value;
+
+		 	if ( userName ==  "")
+		 	{
+		 		alert("please Enter a valid Username");	
+		 		return 
+		    }
+		    if (pass===""|| pass.length<=8)
+		    {
+		    	alert("please enter proper format of password")
+		    	return
+		    }
+		    if (rePass===""|| rePass!==pass)
+		    {
+		    	alert("please enter proper format of confirm password")
+		    	return
+		    }
+		    if (firstName==="")
+		    {
+		    	alert("please enter valid firstName")
+		    	return
+		    }
+		    if (lastName==="")
+		    {
+		    	alert("please enter valid lastName")
+		    	return
+		    }
+		    if (email==="")
+		    {
+		    	alert("please enter your email")
+		    	return
+		    }
+		    if (phone===""|| phone.length!=10)
+		    {
+		    	alert("please enter proper format of phoneNumber")
+		    }
+		    return alert("Form Submitted successfully")
+		} 
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,12 @@
+.main {
+    margin-top: 100px;
+}
+table th,tr {
+    text-align: center; 
+ }
+ .error {
+     color :red;
+ }
+ #delete {
+   margin-left: 70px;
+ }

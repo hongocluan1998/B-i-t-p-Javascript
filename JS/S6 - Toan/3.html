@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Bai tap Count Down </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="jquery.fireworks.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div class="container ">
+
+
+
+        <div class="box pt-5" id="box">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <span style="font-size: 30px;">Countdown to </span>
+                    <span id="title" style="font-size: 30px;"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h5>Event Name:</h5>
+                </div>
+                <div class="col-md-8  ">
+                    <input type="text" id="eventName" style="width:200px" class="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h5>Event Date:</h5>
+                </div>
+                <div class="col-md-4">
+                    <input type="datetime-local" class="eventDate" id="timeEvent" style="width:200px">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary my-3" style="width:200px"
+                        onclick="showTime()">CountDown</button>
+                </div>
+
+            </div>
+            <!-- <div class="row">
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary my-3" style="width:200px"
+                        onclick="test()">test</button>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-12 mb-3 text-center">
+                    <span id="result"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="demo " >
+        22222    
+    </div> -->
+
+
+    <script type="text/javascript" src="./1.js"></script>
+
+</body>
+
+</html>

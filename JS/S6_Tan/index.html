@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 border"
+                    style="border: 3px; padding: 20px; background: #B0E2FF; border-radius: 10px;">
+                    <h4>Countdown to.....</h4>
+                    <form class="mt-3">
+                        <div class="form-group row ">
+                            <label class="col-lg-4 col-form-label">Event Name: </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="eventName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">Event day: </label>
+                            <div class="col-lg-8">
+                                <input type="date" class="form-control" id="eventDay">
+                            </div>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-success" style="float: right;"
+                        onclick="countdownTimeStart()">Countdown!</button>
+                    <p id="result" class="text-danger" style="font-weight: bold;"></p>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function countdownTimeStart() {
+        var a = document.getElementById("eventDay").value;
+        var eventName = document.getElementById("eventName").value;
+        var result = document.getElementById("result");
+        console.log(a);
+
+        var deadline = new Date(a).getTime();
+        var now = new Date().getTime();
+
+        var t = deadline - now;
+
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((t % 1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        var minutes = Math.floor((t % 1000 * 60 * 60) / (1000 * 60));
+        var seconds = Math.floor((t % 1000 * 60 * 60) / 1000);
+
+        result.innerHTML = "The event " + eventName + " will take place after " + days + " day " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+
+    };
+
+</script>
+
+</html>

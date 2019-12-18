@@ -1,0 +1,14 @@
+.main {
+    margin-top: 100px;
+}
+input {
+    width: 100px;
+    text-align: center;
+    height: 40px;
+    border-radius: 6px ;
+    border: 1px solid #F79F81 ;
+}
+body {
+    /* background-color: #F79F81 !important; */
+
+}

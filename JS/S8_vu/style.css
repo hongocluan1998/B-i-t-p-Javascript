@@ -1,0 +1,45 @@
+
+
+body div{
+        color: #848484;
+}
+/*.box{
+        border: 1px solid #E6E6E6;
+}*/
+/*body > table{
+    width: 80%;
+}*/
+.headerForm{
+    margin:20px 20px 20px 0px;
+}
+.headerForm button{
+    margin-right: 10px;
+}
+.my-2 {
+    margin-bottom: 10px ;
+}
+.task tr th{
+    margin:auto;
+    padding: 10px;
+    text-align: left;
+}
+.error {
+    font-size: 13px;
+    font-style: italic;
+    color :red;
+    /*border: solid red;*/
+ }
+.button1 {
+    margin: 10px 20px 20px 0px;
+ }
+/*table{
+    border-collapse: collapse;
+}*/
+table.list{
+    width:100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+}

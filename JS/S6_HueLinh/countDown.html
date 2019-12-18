@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CounDown</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="col-md-8 border mx-auto mt-5">
+        <h3 class="text-center">CountDown</h3>
+        <div class="row">
+            <span class="col-md-3 my-auto ml-3">Event Name:</span>
+            <input class="form-control col-md-7 mb-2" id="namevent" type="text" placeholder="Tax day">
+        </div>
+
+        <div class="row">
+            <span  class="col-md-3 my-auto ml-3">Event Date:</span>
+            <input class="form-control col-md-7 mb-2" type="date" id="dateInput" >
+        </div>
+        <div class="row">
+            <span  class="col-md-3 my-auto ml-3">Hour:</span>
+            <input class="form-control col-md-7 mb-2" type="time" id="hour" >
+        </div>
+        <div class="row">
+            <span  class="col-md-3 ml-3"></span>
+            <button id="countdown" class="btn btn-primary btn-sm mb-2">Countdown</button>
+            <button id="reset" class="btn btn-primary btn-sm mb-2 ml-2">Reset</button>
+        </div>
+
+        <div id="show" class="text-danger text-center mb-2">
+        </div>
+
+    </div>
+
+    <script>
+        //setInterval(genderTime, 1000);
+        var countdown = document.getElementById('countdown');
+        var reset = document.getElementById('reset');
+
+        countdown.addEventListener('click', genderTime);
+        reset.addEventListener('click', resetdate);
+
+        var nameEvent = document.getElementById('namevent');
+        var inputday = document.getElementById('dateInput');
+        var inputhour = document.getElementById('hour');
+<<<<<<< HEAD
+
+var count;
+        function genderTime() {
+            
+=======
+        var count;
+
+        function genderTime() {
+           
+            clearInterval(count);
+>>>>>>> e6676f34d8174ca8ebd00c1976d363c019a0c613
+            if(nameEvent.value == '' && inputday.value == '') {
+                document.getElementById('show').innerHTML = 'Please enter value!';
+            }else if(nameEvent.value == ''){
+                document.getElementById('show').innerHTML = 'Please enter nameEvent!';
+            } else if(inputday.value == '') {
+                document.getElementById('show').innerHTML = 'Please enter event day!';
+            } else {
+                var dayEvent;
+                if(inputhour.value == '') {
+                    dayEvent = new Date(`${inputday.value}T00:00:00`);
+                } else {
+                    dayEvent = new Date(`${inputday.value}T${inputhour.value}:00`);
+                }
+
+                var dayNow = new Date();
+
+                console.log('dayvent', dayEvent);
+                console.log('daynow', dayNow);
+
+                var milDif = dayNow.getTime() - dayEvent.getTime();
+                console.log(milDif);
+                // var countdown = Math.abs(Math.floor(milDif / (1000* 60 * 60 * 24)));
+
+
+
+                if(milDif > 0) {
+                    console.log('hhhh');
+                    console.log(dayEvent.getDate());
+                    console.log(dayNow.getDate());
+                    if(dayEvent.getDate() == dayNow.getDate()) {
+                        console.log('ss')
+
+                        document.getElementById('show').innerHTML = `${nameEvent.value} event happened today `;
+                    }else {
+                        
+                        document.getElementById('show').innerHTML = `${nameEvent.value} event happened ${countdown} days ago`;
+                    }
+                } else {
+                        console.log('kkk');
+                       clearInterval(count);
+                        count = setInterval(function() {
+                            
+                        let now = new Date();
+                        let mil = dayEvent.getTime() - now.getTime();
+                        //var days = Math.floor(mil / (1000 * 60 * 60 * 24));
+                        var days = Math.floor(mil / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((mil%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+                        var minutes = Math.floor((mil % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((mil % (1000 * 60)) / 1000);
+
+                        if(hours < 10) {
+                            hours = '0' + hours;
+                        }
+                        if(minutes < 10) {
+                            minutes = '0' + minutes;
+                        }
+                        if(seconds < 10) {
+                            seconds = '0' + seconds;
+                        }
+                        if(days > 0) {
+                            document.getElementById('show').innerHTML = `${days} days left ${hours} : ${minutes} : ${seconds} `;
+                        }
+                         else {
+                            document.getElementById('show').innerHTML = `${hours} : ${minutes} : ${seconds} `;
+                        }
+                         if(days == 0 && hours == 0 && minutes == 0 && seconds == 0) {
+                             clearInterval(count);
+                         }
+                    }, 1000);
+
+                   
+                }
+            }
+        }
+
+        function  resetdate() {
+            console.log('reset');
+            document.getElementById('namevent').value = '';
+            document.getElementById('dateInput').value = '';
+        }
+    </script>
+</body>
+</html>

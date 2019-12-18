@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="final_style.css">
+    <script src="final_edit.js" defer></script>
+</head>
+
+<body>
+    <header class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="logo">
+                            IVIETTECH
+                    </strong>
+                </div>
+                <div class="col-md-6">
+                        <strong>
+
+                        </strong>
+                </div>
+               
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container bg-secondary pb-3">
+            <div class="row text-light  p-0 m-0 flex-column">
+                <h1>Add or Edit company</h1>
+                <p>Quam ab ratione deserunt voluptatum delectus laboriosam
+                    temporibus corporis ullam. Ullam, veniam rerum.</p>
+            </div>
+            <div class="row  bg-light p-2 m-0 ">
+                <div class="col-12">
+                    <div class="row">
+                            <div class="col-md-6 d-flex flex-column">
+                                    <label for="companyName">
+                                        <strong>Company Name</strong>
+                                        <span class="redAsterisk">*</span>
+                                        <input type="text" name="" id="companyName">
+                                    </label>
+                                    <label for="operatingCompany">
+                                        <strong>Operating Company</strong>
+                                        <span class="redAsterisk">*</span>
+                                        <input type="checkbox" name="" id="operatingCompany" disabled>
+                                    </label>
+                                    <label for="maximumWorking">
+                                        <strong>MaximumWorking</strong>
+                                        <span class="redAsterisk">*</span>
+                                        <input type="number" name="" id="maximumWorking">
+                                    </label>
+
+                                  </div>
+                                  <div class="col-md-6 d-flex flex-column">
+                                        <label for="status">
+                                                <strong>Status</strong>
+                                                <span class="redAsterisk">*</span>
+                                                <select name="" id="status">
+                                                    <option value="Enabled">Enabled</option>
+                                                    <option value="Disabled">Disabled</option>
+                                                </select>
+                                                
+                                            </label>
+                                            <label for="clorCode">
+                                                <strong>Color Code</strong>
+                                                <span class="redAsterisk">*</span>
+                                                <input type="color" name="" id="clorCode" class="display-color">
+                                            </label>
+                                    
+                                  </div>
+                  
+                    </div>
+                    <div class="row">
+                        <div class="col-5 d-flex">
+                                <label for="zoneList"  class="label-zone-list">
+                                    
+                                        <strong>Zone List</strong>
+                                        <span class="redAsterisk">*</span>
+                                    </label>
+                                        <select name="" id="zoneList" class="zone-edit-list" multiple="multiple">
+                                            <option value="1">Zone 1</option>
+                                            <option value="2">Zone 2</option>
+                                            <option value="3">Zone 3</option>
+                                        </select>
+                                        
+                                 
+                        </div>
+                        <div class="col-2  mt-auto">
+                                <div class="center d-flex flex-column">
+                                        <button type="button" id="addZoneIterm">Add</button>
+                                        <button type="button" id="removeZoneIterm">Remove</button>
+                                </div>
+                        </div>
+                        <div class="col-5 d-flex">
+                            
+                                <label for="whiltelistedZones" class="label-zone-list">
+                                        <strong>Whiltelisted Zonest</strong>
+                                        <span class="redAsterisk">*</span>
+                                    </label>
+                                        <select name="" id="whiltelistedZones" class="zone-edit-list"  multiple="multiple">
+                                            <option value="1">Zone 1</option>
+                                            <option value="2">Zone 2</option>
+                                            <option value="3">Zone 3</option>
+                                        </select>
+                                        
+                                   
+                        </div>
+
+  
+
+                    </div>
+                    <div class="row  flex-row">
+                        <button type="button" id="saveEdit">Save</button>
+                        <a href="index.html" id="cancelEdit">Cancel</a>
+                        <button type="button" id="undoEdit">Undo</button>
+                    </div>
+                    
+                </div>
+               
+            </div>
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

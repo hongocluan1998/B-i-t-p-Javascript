@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body onload="clock()">
+	<div class="container">
+		<div class="row my-5">
+			<div class="col-12 text-center my-3">
+				<h3>Giờ Quốc tế</h3>
+			</div>
+			<div class="col-2 vn">
+				<h4 class="text-center">Việt Nam</h4>
+				<h5 class="text-center" id="vnHours"></h5>
+			</div>
+			<div class="col-2 taiwan">
+				<h4 class="text-center">Taiwan</h4>
+				<h5 class="text-center" id="taiwanHours"></h5>
+			</div>
+			<div class="col-2 US(New York)">
+				<h4 class="text-center">US(New York)</h4>
+				<h5 id="USHours" class="text-center"></h5>
+			</div>
+			<div class="col-2 India">
+				<h4 class="text-center">India</h4>
+				<h5 id="IndiaHours" class="text-center"></h5>
+			</div>
+			<div class="col-2 UTC">
+				<h4 class="text-center">UTC</h4>
+				<h5 id="UTCHours" class="text-center"></h5>
+			</div>
+			<div class="col-2">
+				<h4 class="text-center">Thái Lan</h4>
+				<h5 id="tlHours" class="text-center"></h5>
+			</div>
+		</div>
+	</div>
+	<style>
+		.col-2{
+			border: 1px solid grey;
+		}
+		h3{
+			color: #003399;
+		}
+		h5{
+			color: blue;
+		}
+	</style>
+</body>
+</html>
+<script type="text/javascript">
+	function clock(){
+	var vndate = new Date();
+	var vnHours = vndate.getHours();
+	var vnMinutes = vndate.getMinutes();
+	// document.getElementById('vnHours').innerHTML = vnHours+':'+vnMinutes;
+
+	// var twHours = vnHours + 1;
+	// var twMinute = vnMinutes;
+	// document.getElementById('taiwanHours').innerHTML = twHours +':'+ twMinute;
+
+	// document.getElementById('USHours').innerHTML = vnHours - 12 +':'+ vnMinutes;
+	// document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ vnMinutes;
+	// document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ vnMinutes;
+	// document.getElementById('tlHours').innerHTML = vnHours+':'+vnMinutes;
+	
+	 if (vnHours >= 0 && vnHours <12){
+	 	if(vnMinutes<10){
+	 		document.getElementById('vnHours').innerHTML = vnHours +':'+ '0'+vnMinutes;
+		 	var twHours = vnHours + 1;
+			var twMinute = vnMinutes;
+			document.getElementById('taiwanHours').innerHTML = twHours +':'+ '0'+twMinute;
+			document.getElementById('USHours').innerHTML = vnHours + 12 +':'+ '0'+vnMinutes;
+			document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ '0'+vnMinutes;
+			document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ '0'+vnMinutes;
+			document.getElementById('tlHours').innerHTML = vnHours +':' + '0'+vnMinutes;
+	 	}
+	 	else{
+	 	// var newHours = vnHours + 12;
+		 	document.getElementById('vnHours').innerHTML = vnHours +':'+ vnMinutes;
+		 	var twHours = vnHours + 1;
+			var twMinute = vnMinutes;
+			document.getElementById('taiwanHours').innerHTML = twHours +':'+ twMinute;
+			document.getElementById('USHours').innerHTML = vnHours + 12 +':'+ vnMinutes;
+			document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ vnMinutes;
+			document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ vnMinutes;
+			document.getElementById('tlHours').innerHTML = vnHours +':' + vnMinutes;
+		}
+	}
+	 if(vnHours == 12){
+	 	if(vnMinutes<10){
+	 		document.getElementById('vnHours').innerHTML = vnHours +':'+ '0'+vnMinutes;
+	 		document.getElementById('USHours').innerHTML = vnHours - 12 +':'+ '0'+vnMinutes;
+	 		var twHours = vnHours + 1;
+			var twMinute = vnMinutes;
+			document.getElementById('taiwanHours').innerHTML = twHours +':'+ '0'+twMinute;
+			document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ '0'+vnMinutes;
+			document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ '0'+vnMinutes;
+			document.getElementById('tlHours').innerHTML = vnHours +':' + '0'+vnMinutes;
+	 	}
+	 	else{
+		 	document.getElementById('vnHours').innerHTML = vnHours +':'+ vnMinutes;
+		 	document.getElementById('USHours').innerHTML = vnHours - 12 +':'+ vnMinutes;
+		 	var twHours = vnHours + 1;
+			var twMinute = vnMinutes;
+			document.getElementById('taiwanHours').innerHTML = twHours +':'+ twMinute;
+			document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ vnMinutes;
+			document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ vnMinutes;
+			document.getElementById('tlHours').innerHTML = vnHours +':' + vnMinutes;
+		}
+	}
+	 if(vnHours > 12){
+	 	if(vnMinutes<10){
+	 		document.getElementById('vnHours').innerHTML = vnHours + ':' + '0'+vnMinutes;
+			var twHours = vnHours + 1;
+			var twMinute = vnMinutes;
+			document.getElementById('taiwanHours').innerHTML = twHours +':'+ '0'+twMinute;
+			document.getElementById('USHours').innerHTML = vnHours - 12 +':'+ '0'+vnMinutes;
+			document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ '0'+vnMinutes;
+			document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ '0'+vnMinutes;
+			document.getElementById('tlHours').innerHTML = vnHours +':'+ '0'+vnMinutes;
+	 	}
+	 	else{
+	 		document.getElementById('vnHours').innerHTML = vnHours + ':' + vnMinutes;
+			var twHours = vnHours + 1;
+			var twMinute = vnMinutes;
+			document.getElementById('taiwanHours').innerHTML = twHours +':'+ twMinute;
+			document.getElementById('USHours').innerHTML = vnHours - 12 +':'+ vnMinutes;
+			document.getElementById('IndiaHours').innerHTML = vnHours - 2 +':'+ vnMinutes;
+			document.getElementById('UTCHours').innerHTML = vnHours - 7 +':'+ vnMinutes;
+			document.getElementById('tlHours').innerHTML = vnHours +':'+vnMinutes;
+	 	}	 	
+	 	}
+}
+		setInterval("clock()",1000);
+		
+	
+</script>

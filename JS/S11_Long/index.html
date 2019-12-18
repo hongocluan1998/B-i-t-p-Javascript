@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 11</title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h2>Change effect using callback function</h2>
+	<h3>===> Input parameters into function setEffect(count,time,color)</h3>
+	<p></p>
+	<script>
+		// declare var
+		let contentTag = document.querySelector('p');
+
+		// default init
+		setEffect(100,1000,'red');
+
+		// define functions
+		function print(count){
+			return contentTag.innerText = 'A'.repeat(count);
+		}
+		function changeColor(color){
+			return contentTag.style.color = color;
+		}
+		function handleEffect(count,time,color){
+			return new Promise((resolve,reject) =>{
+				print(count);
+				setTimeout(() => {resolve(color);},time);
+			})
+		}
+		function setEffect(count,time,color){
+			return handleEffect(count,time,color).then(changeColor);
+		}
+	</script>
+</body>
+</html>

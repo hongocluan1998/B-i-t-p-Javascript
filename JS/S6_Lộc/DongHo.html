@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dong ho</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body onload="startTime()">
+ <div class="container">
+     <div class="row text-center">
+         <div class="col-1"></div>
+         <div class="col-2">
+             <h2>Việt Nam</h2>
+             <div id="vietNam"></div>
+         </div>
+         <div class="col-2">
+                <h2>USA</h2>
+                <p id="usa"></p>
+         </div>
+         <div class="col-2">
+                <h2>Taiwan</h2>
+                <p id="taiwan"></p>
+         </div>
+         <div class="col-2">
+             <h2>UTC</h2>
+             <p id="utc"></p>
+         </div>
+         <div class="col-2"></div>
+        <div class="col-1"></div>
+     </div>
+ </div>   
+</body>
+<script>
+    function startTime() {
+    
+  var today = new Date();
+
+ 
+ //vn
+  var h = today.getHours();
+  var m = today.getMinutes();
+  m = checkTime(m);
+  h = checkHours(h)
+  document.getElementById('vietNam').innerHTML =
+  h + ":" + m ;
+  // usa
+
+  var usa = today.setHours(today.getHours() +12);
+   document.getElementById('usa').innerHTML =
+   today.getHours() + ":" + m ;  
+   m = checkTime(m);
+   
+   // taiwan 
+   var today1 = new Date();
+   var taiwan = today1.setHours(today1.getHours() + 1);
+   document.getElementById('taiwan').innerHTML =
+   today1.getHours() + ":" + m ;  
+   m = checkTime(m);
+  // utc 
+  var today2 = new Date();
+   var utc = today2.setHours(today2.getHours() + 5);
+   document.getElementById('utc').innerHTML =
+   today2.getHours() + ":" + m ;  
+   m = checkTime(m);
+}
+//check minutes < 10 add zero
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+//check hours == 23 -> 00 
+function checkHours(j){
+    if(j > 22){
+        j = "00" ;
+    }
+    return j;
+}
+</script>
+</html>

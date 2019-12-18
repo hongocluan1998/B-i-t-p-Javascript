@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<title>Bt2</title>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div class="row text-center">
+            <div class="col-md-6">
+                    <button onclick="openForm()" id="btnAddForm" class="btn btn-danger">
+                            <span class="spinner-grow spinner-grow-sm"></span> Add...
+                    </button>
+            </div>
+                
+            <div class="col-md-6">
+                    <button id="btnDelForm" class="btn btn-warning" onclick="functionDel()">
+                            <span class="spinner-grow spinner-grow-sm"></span> Del...
+                    </button>
+            </div>
+        </div>
+        <br>
+        <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" disabled></th>
+                    <th>Item ID</th>
+                    <th>Product Name</th>
+                    <th>Actual Price</th>
+                    <th>Discount Price</th>
+                    <th>Stock Available</th>
+                  </tr>
+                </thead>
+                <tbody id="tableContent">
+                </tbody>
+        </table>   
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-md-6">
+                    <div class="form-popup" id="myForm" style="display: none; color: rgb(8, 131, 39)">
+                            <form>
+                                <div class="form-group">
+                                  <label for="item">Item ID</label>
+                                  <input type="number" class="form-control" id="item" placeholder="" name="item">
+                                </div>
+                                <div class="form-group">
+                                  <label for="product">Product Name</label>
+                                  <input type="text" class="form-control" id="product" placeholder="" name="product">
+                                </div>
+                                <div class="form-group">
+                                    <label for="actul">Actual Price</label>
+                                    <input type="number" class="form-control" id="actul" placeholder="" name="actul">
+                                </div>
+                                <div class="form-group">
+                                    <label for="discount">Discount Price</label>
+                                    <input type="number" class="form-control" id="discount" placeholder="" name="discount">
+                                </div>
+                                <div class="form-group">
+                                    <label for="stock">Stock Available</label>
+                                    <input type="number" class="form-control" id="stock" placeholder="" name="stock">
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="addItem()">Create</button>
+                                <button type="button" class="btn btn-dark" onclick="closeForm()">Close</button>
+                            </form>
+                            <br>
+                            <br>
+                    </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+<script>
+    var myStorege = window.localStorage;
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+    var arrObj = myStorege.getItem("listObj") === null ? [] : JSON.parse(myStorege.getItem("listObj"));
+    for (var i = 0; i < arrObj.length; i++) {
+                var strTemp = "";
+                strTemp = "<tr>";
+                strTemp += "<td>" + "<input type=\"checkbox\">" + "</td>";
+                strTemp += "<td>" + arrObj[i]["iTem"] + "</td>";
+                strTemp += "<td>" + arrObj[i]["productName"] + "</td>";
+                strTemp += "<td>" + arrObj[i]["actulPrice"] + "</td>";
+                strTemp += "<td>" + arrObj[i]["discountPrice"] + "</td>";
+                strTemp += "<td>" + arrObj[i]["stockAvailable"] + "</td>";
+                strTemp += "</tr>";
+                document.getElementById("tableContent").innerHTML += strTemp;
+    }
+
+    function addItem() {
+        var iTem = document.getElementById("item").value;
+        var productName = document.getElementById("product").value;
+        var actulPrice = document.getElementById("actul").value;
+        var discountPrice = document.getElementById("discount").value;
+        var stockAvailable = document.getElementById("stock").value;
+        var obj = {
+            iTem, productName, actulPrice, discountPrice, stockAvailable
+            }
+        if(iTem == "" || productName == "" || actulPrice == "" || discountPrice =="" || stockAvailable == "") {
+            alert("Nhập đủ các thông số");
+        }
+        else{
+            arrObj.push(obj);
+            console.log(arrObj);
+            myStorege.setItem("listObj",JSON.stringify(arrObj));
+            document.getElementById("tableContent").innerHTML = "";
+            for(var i = 0; i < arrObj.length; i++) {
+            var strRow = "<tr>";
+            strRow += "<td>" + "<input type=\"checkbox\">" + "</td>";
+            strRow += "<td>" + arrObj[i]["iTem"] + "</td>";
+            strRow += "<td>" + arrObj[i]["productName"] + "</td>";
+            strRow += "<td>" + arrObj[i]["actulPrice"] + "</td>";
+            strRow += "<td>" + arrObj[i]["discountPrice"] + "</td>";
+            strRow += "<td>" + arrObj[i]["stockAvailable"] + "</td>";
+            strRow += "</tr>";
+            document.getElementById("tableContent").innerHTML += strRow;
+            console.log(strRow);
+            closeForm();
+            }
+            location.reload();
+        }
+        
+        
+    }
+    function functionDel() {
+        var tb = document.getElementById("tableContent");
+        // for(var i = 0; i < arrObj.length; i++){
+        //     var x = tb.rows[i].cells[0].children[0].checked;
+        //     if(x == true) { 
+        //         arrDel.push(tb.rows[i]);
+        //     }
+        //      arrDel.forEach(index=>{
+        //      tb.removeChild(index);
+        //  })
+        // }
+        var newArr = [];
+        for(var i = 0; i < arrObj.length; i++){
+            var x = tb.rows[i].cells[0].children[0].checked;
+            if(x != true) {
+                
+                newArr = arrObj[i];
+                
+                myStorege.setItem("listObj", JSON.stringify(newArr));
+            // arrObj = arrObj.filter(result => result != arrObj[i]);
+            // myStorege.setItem("listObj", JSON.stringify(arrObj));
+            // location.reload();
+                
+            }
+            
+        }
+        location.reload();
+    }
+</script>
+</html>

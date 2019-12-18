@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TaskManager</title>
+</head>
+<body>
+    <h3>Task Manager</h3>
+    <input id="inputtask" type="text" placeholder="Enter task">
+    <button id="addtask">Add Task</button>
+    <button id="cleartask">Clear Task</button>
+    <div id="show">
+
+    </div>
+
+    <script>
+        var addTask = document.getElementById('addtask');
+        var clearTask = document.getElementById('cleartask');
+        var show = document.getElementById('show');
+        var input = document.getElementById('inputtask');
+
+        addTask.addEventListener('click', addTasks);
+        clearTask.addEventListener('click', clearTasks)
+
+        var TaskArr = [];
+        var dataString = localStorage.getItem('listTask');
+        if(dataString) {
+            TaskArr = JSON.parse(dataString)
+            console.log(dataString);
+        } else TaskArr = [];
+
+        function addTasks() {
+            debugger
+            // location.reload();
+            // get value of the input
+            var newTask = input.value;
+            // add task array
+            TaskArr.push(newTask);
+            localStorage.setItem('listTask', JSON.stringify(TaskArr));
+            location.reload();
+        }
+
+        function clearTasks() {
+            TaskArr = [];
+            render();
+            localStorage.setItem('listTask' ,'');
+            location.reload();
+        }
+
+
+
+
+        function render() {
+           var content = '';
+            for(let i = 0; i < TaskArr.length; i++) {
+                content += `Task ${i+1}: ` + TaskArr[i] + '<br>';
+                console.log(content);
+            }
+            show.innerHTML = content;
+        }
+        // render();
+
+    </script>
+</body>
+</html>

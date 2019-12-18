@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="final_style.css">
+    
+    <script src="final_index.js" defer></script>
+</head>
+
+<body>
+    <header class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="logo">
+                            IVIETTECH
+                    </strong>
+                </div>
+                <div class="col-md-6">
+                        <strong>
+
+                        </strong>
+                </div>
+               
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container bg-secondary pb-3">
+            <div class="row text-light  p-0 m-0">
+                <h1>Company Management</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Cumque fugiat nostrum, illum voluptates neque optio et non.
+                    Quam ab ratione deserunt voluptatum delectus laboriosam
+                    temporibus corporis ullam. Ullam, veniam rerum.</p>
+            </div>
+            <div class="row  bg-light p-2 m-0 ">
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <button class="btn btn-dark " id="newButton" href="final_edit.html">
+                            <i class="far fa-file"></i>
+                            <span>New</span>
+                        </button>
+                        <button type="button" class="btn btn-dark" id="deleteButton">
+                            <i class="fas fa-eraser"></i>
+                            <span>Delete</span>
+                        </button>
+                        <button type="button" class="btn btn-dark" id="downloadButton">
+                            <i class="fas fa-file-download"></i>
+                            <span>Download</span>
+                        </button>
+                        <button type="button" class="btn btn-dark" id="searchButton">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span> </button>
+                    </div>
+
+                    <div class="row min-width-500px">
+                        <div class="table-responsive">
+                            <table class="table" id="indexTable">
+                                <thead>
+                                    <tr>
+                                        <th id="thchoseAllChBox">
+                                            <input type="checkbox" name="" id="choseAllChBox">
+                                        </th>
+                                        <th id="thComName" data-colum='name'>
+                                            <strong>
+                                                Company Name
+                                            </strong>
+                                            <i class="fas fa-sort-up"></i>
+                                        </th>
+                                        <th id="thColorCode" data-colum='color'>
+                                            <strong>
+                                                Color Code
+                                            </strong>
+                                            <i class="fas fa-sort"></i>
+                                        </th>
+                                        <th id="thWHour" data-colum='maxWorking'>
+                                            <strong>
+                                                Max. Working Hour
+                                            </strong>
+                                            <i class="fas fa-sort"></i>
+                                        </th>
+                                        <th id="thWZone" data-colum='whiltes'>
+                                            <strong>
+                                                Whiltellsted Zones
+                                            </strong>
+                                            <i class="fas fa-sort"></i>
+                                        </th>
+                                        <th id="thStatus" data-colum='status'>
+                                            <strong>
+                                                Status
+                                            </strong>
+                                            <i class="fas fa-sort" ></i>
+                                        </th>
+                                        <th id="thAction" >
+                                            <strong>
+                                                Action
+                                            </strong>
+                                        </th>
+                                    </tr>
+                                    <tr id="searchRow">
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <input type="text" name="searchCompany" id="" class="border-none bg-light">
+                                        </td>
+                                        <td>
+                                            <input type="color" name="searchColor" id="" class="display-color">
+
+                                        </td>
+                                        <td>
+                                            <input type="number" name="searchWorkHour" id="" class="border-none bg-light">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="searchZone" id="" class="border-none bg-light">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="searchStatus" id="" class="border-none bg-light">
+                                        </td>
+                                        <td class="action-data-table">
+                                            <button type="button" id="search">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                            <button type="button" id="refresh">
+                                                <i class="fas fa-sync"></i>
+                                            </button>
+                                            <button type="button" id="cancel">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-index='0'>
+                                        <td>
+                                            <input type="checkbox" name="choseItermChBox" id="">
+                                        </td>
+                                        <td>
+                                            <strong>Company A</strong>
+                                        </td>
+                                        <td>
+                                            <div class="display-color" style="background-color: red;"></div>
+                                        </td>
+                                        <td>
+                                            10
+                                        </td>
+                                        <td>
+                                            All Zones
+                                        </td>
+                                        <td>
+                                            Enabled
+                                        </td>
+                                        <td class="action-data-table">
+                                            <button type="button" id="editIterm">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+
+                                            <button type="button" id="deleteIterm">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <span>Records per page</span>
+                        <select name="page" id="page-select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        <div class="px-3">
+                            <span class="arrow">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span>1 </span>
+                            <span>2 </span>
+                            <span>3 </span>
+                            <span>
+                                <i class="fas fa-ellipsis-h"></i>
+                            </span>
+                            <span class="arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-3">
+                            <span>
+                                Go to page
+                            </span>
+                            <input type="number" name="" id="">
+                            <span>
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
