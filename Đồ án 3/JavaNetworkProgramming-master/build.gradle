@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'doraneko'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'tk.doraneko.app.Main'
+        )
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'mysql:mysql-connector-java:8.0.17'
+    implementation 'com.github.nkzawa:socket.io-client:0.6.0'
+}
