@@ -1,0 +1,7 @@
+.item {
+    float: left;
+    padding: 30px;
+    margin: 10px;
+    font-size: 30px;
+    background-color: aqua;
+}
