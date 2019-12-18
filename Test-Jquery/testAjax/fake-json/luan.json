@@ -1,0 +1,19 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Luan",
+      "gender": "Nam",
+      "class": "16tclc3",
+      "mssv": "102160253"
+    },
+    {
+      "id": 3,
+      "name": "Linh",
+      "gender": "Nu",
+      "class": "16tclc3",
+      "mssv": "102160252"
+    }
+   
+  ]
+}

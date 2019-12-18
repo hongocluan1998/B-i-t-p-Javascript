@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <title>Final</title>
+    <style>
+      .error {
+        color: darkred;
+      }
+      #thongBao {
+        display: none;
+        color: darkred;
+      }
+      #createUser {
+        display: none;
+        color: darkred;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a
+          class="nav-item nav-link active"
+          id="nav-login-tab"
+          data-toggle="tab"
+          href="#nav-login"
+          role="tab"
+          aria-controls="nav-login"
+          aria-selected="true"
+          >Login</a
+        >
+        <a
+          class="nav-item nav-link"
+          id="nav-sigister-tab"
+          data-toggle="tab"
+          href="#nav-sigister"
+          role="tab"
+          aria-controls="nav-sigister"
+          aria-selected="false"
+          >Sigister</a
+        >
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-login"
+        role="tabpanel"
+        aria-labelledby="nav-login-tab"
+      >
+        <div class="container">
+          <br>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+              <h4 id="thongBao"><b>Sai Name hoặc Password</b></h4>
+              <br/>
+              <br/>
+              <form id="loginForm">
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"><b>Name :</b></label>
+                    <div class="col-sm-9">
+                      <input name="log_inputName" type="text" class="form-control" id="log_inputName" placeholder="Name">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"><b>Password :</b></label>
+                      <div class="col-sm-9">
+                        <input name="log_inputPassword" type="password" class="form-control" id="log_inputPassword" placeholder="Password">
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                        <button id="btnOK" type="button" class="btn btn-danger">Okay</button>
+                      </div>
+                    </div>  
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <br>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-sigister"
+        role="tabpanel"
+        aria-labelledby="nav-sigister-tab"
+      >
+      <div class="container">
+        <br>
+      <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6 text-center">
+            <br>
+            <br>
+            <h4 id="createUser"><b>Name hoặc Email tài khoản đã tồn tại</b></h4>
+            <form id="rigisterForm">
+              <div class="form-group row">
+                  <label class="col-sm-4 col-form-label"><b>Name :</b></label>
+                  <div class="col-sm-8">
+                    <input name="sig_inputName" type="text" class="form-control" id="sig_inputName" placeholder="Name">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label"><b>Password :</b></label>
+                    <div class="col-sm-8">
+                      <input name="sig_inputPassword" type="password" class="form-control" id="sig_inputPassword" placeholder="Password">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label class="col-sm-4 col-form-label"><b>Confirm Password :</b></label>
+                      <div class="col-sm-8">
+                        <input name="sig_confirmPassword" type="password" class="form-control" id="sig_confirmPassword" placeholder="Confirm Password">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label"><b>Email :</b></label>
+                        <div class="col-sm-8">
+                          <input name="sig_inputEmail" type="email" class="form-control" id="sig_inputEmail" placeholder="Email">
+                        </div>
+                      </div>
+                      <br>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button id="btnCreate" type="button" class="btn btn-danger">Create</button>
+            <button onclick="`${window.location.reload()}`" class="btn btn-warning">Cancel</button>
+          </div>
+        </div>
+          </div>
+        </form>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+        
+      </div>
+      </div>
+    </div>
+
+
+
+  </div>  
+  </div>  
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="./jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./exFinal.js"></script>
+  </body>
+</html>

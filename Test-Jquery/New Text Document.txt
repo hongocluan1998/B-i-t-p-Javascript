@@ -1,0 +1,33 @@
+//password {6,}
+//tel \d{3}[\-]{3}[\-]
+//radio: value 0, value 1
+//2 radio cung 1 name ="..."
+//checked dinh nghia tren html
+
+$("input").focusout(function(){
+	var v = $(this).val().trim();
+	var isCh = $(":radio").val();
+	if(v == "")
+	{	
+		$(this).next().text("error");
+	}
+});
+
+$(":radio").change(function(){
+	var isCh = $("input[type="radio"]:checked").val();
+	if(isCh == 0)
+	{	
+		$("#company").attr("disabled", true);
+		$("#company").val("");	
+	}
+	else
+	{
+		$("#company").attr("disabled", false);
+	}
+});
+
+
+label --> id: ....error
+	--> class: error
+
+jQuery.validator.format{"0"}
