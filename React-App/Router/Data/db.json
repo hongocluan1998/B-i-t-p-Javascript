@@ -1,0 +1,20 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "ReactJs"
+    },
+    {
+      "id": 2,
+      "name": "State"
+    },
+    {
+      "id": 3,
+      "name": "Redux"
+    },
+    {
+      "id": 4,
+      "name": "Props"
+    }
+  ]
+}
